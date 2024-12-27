@@ -5,7 +5,7 @@ namespace AcademiaDB.UserInterface.SelectionPrompts;
 
 public class Selection
 {
-    public static object DisplaySingleChoiceMenu<T>(string title, T choices)
+    public static object DisplaySingleChoiceSelection<T>(string title, T choices)
     {
         if (choices is Dictionary<string, MenuText.Options> dictChoices)
         {
@@ -36,7 +36,7 @@ public class Selection
 
 
     // Display multi choice menu.
-    public static List<string> DisplayMultiChoiceMenu(string title,
+    public static List<string> DisplayMultiChoiceSelection(string title,
         Dictionary<string, MenuOptions.MenuText.Options> choices)
     {
         var multipleChoices = AnsiConsole.Prompt(
