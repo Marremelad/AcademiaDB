@@ -1,4 +1,7 @@
-﻿using AcademiaDB.Data;
+﻿using System.Runtime.InteropServices.JavaScript;
+using AcademiaDB.Data;
+using AcademiaDB.Models;
+using Azure.Core;
 
 namespace AcademiaDB.Repositories;
 
@@ -11,13 +14,16 @@ public class EmployeeRepository
         _context = context;
     }
 
-    public string GetEmployeeNames()
+    public List<Employee> GetEmployees()
     {
-        var employeeNames = _context.Employees
-            .Select(s => $"{s.EmployeeFirstName} {s.EmployeeLastName}")
+        var employees = _context.Employees
             .ToList();
 
-        var result = string.Join("\n", employeeNames);
-        return result;
+        return employees;
+    }
+
+    public string GetEmployeeInformation()
+    {
+        throw new NotImplementedException();
     }
 }
