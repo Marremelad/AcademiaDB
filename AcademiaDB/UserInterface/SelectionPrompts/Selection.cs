@@ -1,4 +1,5 @@
-﻿using AcademiaDB.UserInterface.MenuOptions;
+﻿using AcademiaDB.Models;
+using AcademiaDB.UserInterface.MenuOptions;
 using Spectre.Console;
 
 namespace AcademiaDB.UserInterface.SelectionPrompts;
@@ -7,26 +8,40 @@ public class Selection
 {
     public static object DisplaySingleChoiceSelection<T>(string title, T choices)
     {
-        if (choices is Dictionary<string, MenuText.Options> dictChoices)
+        var moreChoicesText = "Move up and down to reveal more options";
+        
+        if (choices is Dictionary<string, MenuText.Options> dictString)
         {
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title(title)
                     .PageSize(10)
-                    .MoreChoicesText("Move up and down to reveal more options")
-                    .AddChoices(dictChoices.Keys));
+                    .MoreChoicesText(moreChoicesText)
+                    .AddChoices(dictString.Keys));
 
-            return dictChoices[choice];
+            return dictString[choice];
         }
 
-        if (choices is List<string> listChoices)
+        if (choices is List<string> listString)
         {
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title(title)
                     .PageSize(10)
-                    .MoreChoicesText("Move up and down to reveal more options")
-                    .AddChoices(listChoices));
+                    .MoreChoicesText(moreChoicesText)
+                    .AddChoices(listString));
+            
+            return choice;
+        }
+        
+        if (choices is List<Employee> listEmployee)
+        {
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<Employee>()
+                    .Title(title)
+                    .PageSize(10)
+                    .MoreChoicesText(moreChoicesText)
+                    .AddChoices(listEmployee));
             
             return choice;
         }
