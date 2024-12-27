@@ -1,4 +1,7 @@
 ﻿using AcademiaDB.Repositories;
+using AcademiaDB.UserInterface.MenuOptions;
+using AcademiaDB.UserInterface.SelectionPrompts;
+using Microsoft.Extensions.Options;
 
 namespace AcademiaDB.UserInterface.Menus;
 
@@ -16,23 +19,18 @@ public class MainMenu
         _viewRepository = viewRepository;
     }
 
-    public void Display()
+    public void DisplayMainMenu()
     {
-        Console.WriteLine("Write something.");
-        var userInput = Console.ReadLine();
+        var selection = Selection.DisplaySingleChoiceSelection("Welcome to Academia!", MenuText.MainMenuText);
 
-        switch (userInput)
+        switch (selection)
         {
-            case "a":
+            case MenuText.Options.Employees:
                 Console.WriteLine(_employeeRepository.GetEmployeeNames());
                 break;
             
-            case "v":
+            case MenuText.Options.Students:
                 Console.WriteLine(_viewRepository.GetTopGrades());
-                break;
-            
-            default:
-                Console.WriteLine("Hello, World!");
                 break;
         }
     }
