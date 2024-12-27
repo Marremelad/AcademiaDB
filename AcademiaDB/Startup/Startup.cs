@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AcademiaDB.Startup;
 
-public static class Run
+public static class Startup
 {
     public static void Run()
     {
