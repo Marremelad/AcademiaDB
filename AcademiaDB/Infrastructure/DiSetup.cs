@@ -1,6 +1,6 @@
 ﻿using AcademiaDB.Data;
 using AcademiaDB.Repositories;
-using AcademiaDB.Views;
+using AcademiaDB.UserInterface.Menus;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AcademiaDB.Infrastructure;

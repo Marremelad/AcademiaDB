@@ -1,6 +1,6 @@
 ﻿namespace AcademiaDB.UserInterface.MenuOptions;
 
-public class MenuOptions
+public class MenuText
 {
     public enum Options
     {

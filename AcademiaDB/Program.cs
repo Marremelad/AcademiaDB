@@ -1,9 +1,11 @@
-﻿namespace AcademiaDB;
+﻿using static AcademiaDB.Startup.Startup;
+
+namespace AcademiaDB;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Run();
     }
 }

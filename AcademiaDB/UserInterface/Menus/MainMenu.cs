@@ -1,14 +1,19 @@
 ﻿using AcademiaDB.Repositories;
 
-namespace AcademiaDB.Views;
+namespace AcademiaDB.UserInterface.Menus;
 
 public class MainMenu
 {
     private EmployeeRepository _employeeRepository;
+    private ViewRepository _viewRepository;
 
-    public MainMenu(EmployeeRepository employeeRepository)
+    public MainMenu(
+        EmployeeRepository employeeRepository,
+        ViewRepository viewRepository
+    )
     {
         _employeeRepository = employeeRepository;
+        _viewRepository = viewRepository;
     }
 
     public void Display()
@@ -21,6 +26,11 @@ public class MainMenu
             case "a":
                 Console.WriteLine(_employeeRepository.GetEmployeeNames());
                 break;
+            
+            case "v":
+                Console.WriteLine(_viewRepository.GetTopGrades());
+                break;
+            
             default:
                 Console.WriteLine("Hello, World!");
                 break;

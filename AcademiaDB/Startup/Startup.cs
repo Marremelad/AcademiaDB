@@ -1,5 +1,5 @@
 ﻿using AcademiaDB.Infrastructure;
-using AcademiaDB.Views;
+using AcademiaDB.UserInterface.Menus;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AcademiaDB.Startup;
