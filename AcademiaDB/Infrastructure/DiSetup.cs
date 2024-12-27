@@ -12,6 +12,7 @@ public static class DiSetup
         return new ServiceCollection()
             .AddScoped<AcademiaContext>()
             .AddScoped<EmployeeRepository>()
+            .AddScoped<ViewRepository>()
             .AddScoped<MainMenu>()
             .BuildServiceProvider();
     }
