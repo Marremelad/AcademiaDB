@@ -1,6 +1,18 @@
-﻿namespace AcademiaDB.Infrastructure;
+﻿using AcademiaDB.Data;
+using AcademiaDB.Repositories;
+using AcademiaDB.Views;
+using Microsoft.Extensions.DependencyInjection;
 
-public class DiSetup
+namespace AcademiaDB.Infrastructure;
+
+public static class DiSetup
 {
-    
+    public static IServiceProvider ConfigureServices()
+    {
+        return new ServiceCollection()
+            .AddScoped<AcademiaContext>()
+            .AddScoped<EmployeeRepository>()
+            .AddScoped<MainMenu>()
+            .BuildServiceProvider();
+    }
 }
