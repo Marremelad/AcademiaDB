@@ -17,6 +17,7 @@ public class EmployeeRepository
             .Select(s => $"{s.EmployeeFirstName} {s.EmployeeLastName}")
             .ToList();
 
-        return string.Join("\n", employeeNames);
+        var result = string.Join("\n", employeeNames);
+        return result;
     }
 }
