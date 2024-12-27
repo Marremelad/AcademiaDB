@@ -10,6 +10,6 @@ public static class Startup
     {
         var serviceProvider = DiSetup.ConfigureServices();
         var mainMenu = serviceProvider.GetRequiredService<MainMenu>();
-        mainMenu.Display();
+        mainMenu.DisplayMainMenu();
     }
 }
