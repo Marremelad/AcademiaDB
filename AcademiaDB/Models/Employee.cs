@@ -30,4 +30,9 @@ public partial class Employee
     public virtual Department DepartmentIdFkNavigation { get; set; } = null!;
 
     public virtual Role RoleIdFkNavigation { get; set; } = null!;
+
+    public override string ToString()
+    {
+        return $"{EmployeeFirstName} {EmployeeLastName}";
+    }
 }
