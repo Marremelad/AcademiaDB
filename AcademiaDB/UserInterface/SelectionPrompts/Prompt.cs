@@ -6,6 +6,8 @@ namespace AcademiaDB.UserInterface.SelectionPrompts;
 
 public class Selection
 {
+    
+    // Displays a single choice prompt. Overloaded to handle multiple data structures.
     public static object DisplaySingleChoiceSelection<T>(string title, T choices)
     {
         var moreChoicesText = "Move up and down to reveal more options";
@@ -50,7 +52,7 @@ public class Selection
     }
 
 
-    // Display multi choice menu.
+    // Displays a multi choice prompt.
     public static List<string> DisplayMultiChoiceSelection(string title,
         Dictionary<string, MenuOptions.MenuText.Options> choices)
     {
