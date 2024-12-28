@@ -1,9 +1,6 @@
-﻿using System.Linq.Expressions;
-using System.Text.RegularExpressions;
-using AcademiaDB.Models;
+﻿using System.Text.RegularExpressions;
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
-using Spectre.Console;
 
 namespace AcademiaDB.Helpers;
 
@@ -86,5 +83,23 @@ public static class UserInput
         }
 
         return classId;
+    }
+    
+    // Get employee start date from user input.
+    public static string GetEmployeeStartDate(string title)
+    {
+        const string pattern = @"^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$";
+
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine(title);
+            
+            var startDate = Console.ReadLine();
+            
+            if (startDate != null && Regex.IsMatch(startDate, pattern)) return startDate;
+            Console.WriteLine("Invalid date format.");
+            Thread.Sleep(2000);
+        }
     }
 }
