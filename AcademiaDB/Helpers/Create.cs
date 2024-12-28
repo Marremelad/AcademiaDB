@@ -31,9 +31,9 @@ public class Create
         
         var lastName =  UserInput.GetLastName("Please enter the new employees last name.");
         
-        var ssn = UserInput.GetSsn("Please enter the new employees ssn.");
+        var ssn = UserInput.GetSsn("Please enter the new employees ssn. (yyyyMMdd-nnnn)");
         
-        var startDate = UserInput.GetEmployeeStartDate("Please enter the new employees start date.");
+        var startDate = UserInput.GetEmployeeStartDate("Please enter the new employees start date. (yyyy-MM-dd)");
         
         var salary = UserInput.GetEmployeeSalary("Please enter the new employees salary");
         
