@@ -122,7 +122,6 @@ public static class UserInput
         // Assigns the correct department depending on the chosen role.
         return (MenuText.Options)selection switch
         {
-            MenuText.Options.Principal => (1, 1),
             MenuText.Options.Teacher => (1, 2),
             MenuText.Options.Administrator => (2, 3),
             MenuText.Options.Janitor => (3, 4),
