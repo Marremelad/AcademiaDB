@@ -96,7 +96,6 @@ public static class UserInput
             Thread.Sleep(2000);
         }
     }
-
     
     // Get employee salary from user input.
     public static decimal GetEmployeeSalary(string title)
