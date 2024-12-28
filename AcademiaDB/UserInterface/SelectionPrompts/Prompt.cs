@@ -4,14 +4,15 @@ using Spectre.Console;
 
 namespace AcademiaDB.UserInterface.SelectionPrompts;
 
-public class Selection
+public class Prompt
 {
     
     // Displays a single choice prompt. Overloaded to handle multiple data structures.
-    public static object DisplaySingleChoiceSelection<T>(string title, T choices)
+    public static object DisplaySingleChoicePrompt<T>(string title, T choices)
     {
         var moreChoicesText = "Move up and down to reveal more options";
         
+        // Handles a dictionary of type string and Menutext.Options.
         if (choices is Dictionary<string, MenuText.Options> dictString)
         {
             var choice = AnsiConsole.Prompt(
@@ -24,6 +25,7 @@ public class Selection
             return dictString[choice];
         }
 
+        // Handles a list of type string.
         if (choices is List<string> listString)
         {
             var choice = AnsiConsole.Prompt(
@@ -36,6 +38,7 @@ public class Selection
             return choice;
         }
         
+        // Handles a list of type Employee.
         if (choices is List<Employee> listEmployee)
         {
             var choice = AnsiConsole.Prompt(
@@ -53,7 +56,7 @@ public class Selection
 
 
     // Displays a multi choice prompt.
-    public static List<string> DisplayMultiChoiceSelection(string title,
+    public static List<string> DisplayMultiChoicePrompt(string title,
         Dictionary<string, MenuOptions.MenuText.Options> choices)
     {
         var multipleChoices = AnsiConsole.Prompt(

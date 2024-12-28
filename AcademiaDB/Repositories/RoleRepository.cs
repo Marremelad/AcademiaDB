@@ -2,17 +2,12 @@
 
 namespace AcademiaDB.Repositories;
 
-public class EmployeeRoleRepository
+public class RoleRepository
 {
-    private AcademiaContext _context;
+    private AcademiaContext _context; // Private instance of AcademiaContext. Will be resolved by the DI container.
 
-    public EmployeeRoleRepository(AcademiaContext context)
+    public RoleRepository(AcademiaContext context)
     {
         _context = context;
-    }
-
-    public string GetEmployeeRoles()
-    {
-        var query = _context.
     }
 }
