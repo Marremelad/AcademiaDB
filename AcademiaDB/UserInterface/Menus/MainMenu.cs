@@ -1,4 +1,5 @@
-﻿using AcademiaDB.Repositories;
+﻿using AcademiaDB.Models;
+using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
 using Microsoft.Extensions.Options;
@@ -8,18 +9,18 @@ namespace AcademiaDB.UserInterface.Menus;
 
 public class MainMenu
 {
-    private EmployeeRepository _employeeRepository; // Private instance of EmployeeRepository. Will be resolved by DI container.
     private EmployeeMenu _employeeMenu; // Private instance of EmployeeMenu. Will be resolved by DI container.
+    private StudentMenu _studentMenu;
     private ViewRepository _viewRepository; // Private instance of ViewRepository. Will be resolved by DI container.
 
     public MainMenu(
-        EmployeeRepository employeeRepository, 
-        EmployeeMenu employeeMenu, 
+        EmployeeMenu employeeMenu,
+        StudentMenu studentMenu,
         ViewRepository viewRepository 
     )
     {
-        _employeeRepository = employeeRepository;
         _employeeMenu = employeeMenu;
+        _studentMenu = studentMenu;
         _viewRepository = viewRepository;
     }
 
@@ -36,9 +37,9 @@ public class MainMenu
                 case MenuText.Options.Employees:
                     _employeeMenu.DisplayEmployeeMenu();
                     break;
-            
+                
                 case MenuText.Options.Students:
-                    Console.WriteLine(_viewRepository.GetTopGrades());
+                    _studentMenu.DisplayStudentMenu();
                     break;
             }
         
