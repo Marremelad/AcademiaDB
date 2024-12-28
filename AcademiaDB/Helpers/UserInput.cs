@@ -54,7 +54,7 @@ public static class UserInput
             var ssn = Console.ReadLine();
             
             if (ssn != null && Regex.IsMatch(ssn, pattern)) return ssn;
-            Console.WriteLine("Invalid SSN format.");
+            Console.WriteLine("Invalid SSN format. Please use yyyyMMdd-nnnn");
             Thread.Sleep(2000);
         }
     }
