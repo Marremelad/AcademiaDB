@@ -20,7 +20,7 @@ public class StudentMenu
         switch (selection)
         {
             case MenuText.Options.AllStudents:
-                Console.WriteLine(_studentRepository.DisplayStudentsWithClasses(s => s.StudentId, true));
+                Console.WriteLine(_studentRepository.DisplayStudentsWithClasses(s => s.ClassIdFkNavigation.ClassName, false));
                 break;
         }
     }
