@@ -63,7 +63,6 @@ public class MenuText
     // Employee Role Assignment Options
     public static readonly Dictionary<string, Options> EmployeeRoleMenuText = new()
     {
-        { "Principal", Options.Principal },
         { "Teacher", Options.Teacher },
         { "Administrator", Options.Administrator },
         { "Janitor", Options.Janitor },
