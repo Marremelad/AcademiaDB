@@ -10,7 +10,6 @@ public class MenuText
         Classes,
         Courses,
         RecentlySetGrades,
-        AddStudent,
         Exit,
         
         // Employee Menu.
@@ -23,6 +22,9 @@ public class MenuText
         AddEmployee,
         
         // Student Menu.
+        AllStudents,
+        FilterStudents,
+        AddStudent,
         SortByFirstName, // 14
         SortByLastName, // 15
         OrderByDescending, // 16
@@ -43,8 +45,6 @@ public class MenuText
         { "Classes", Options.Classes },
         { "Courses", Options.Courses },
         { "Recently set grades", Options.RecentlySetGrades },
-        { "Add a student", Options.AddStudent },
-        { "Add an employee", Options.AddEmployee },
         { "Exit", Options.Exit }
     };
     
@@ -71,6 +71,18 @@ public class MenuText
 
     // Student Menu Options.
     public static readonly Dictionary<string, Options> StudentMenuText = new()
+    {
+        { "All students", Options.AllStudents },
+        { "Filter students", Options.FilterStudents },
+        { "Add a new student", Options.AddStudent },
+        { "Sort by First Name", Options.SortByFirstName },
+        { "Sort by Last Name", Options.SortByLastName },
+        { "Order by Descending", Options.OrderByDescending },
+        { "Order by Ascending", Options.OrderByAscending }
+    };
+    
+    // Filter Students Menu Options.
+    public static readonly Dictionary<string, Options> FilterStudentsMenuText = new()
     {
         { "Sort by First Name", Options.SortByFirstName },
         { "Sort by Last Name", Options.SortByLastName },
