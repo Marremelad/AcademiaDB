@@ -13,10 +13,12 @@ public static class DiSetup
     {
         return new ServiceCollection()
             .AddScoped<AcademiaContext>()
-            .AddScoped<EmployeeRepository>()
-            .AddScoped<ViewRepository>()
-            .AddScoped<EmployeeMenu>()
             .AddScoped<MainMenu>()
+            .AddScoped<EmployeeMenu>()
+            .AddScoped<EmployeeRepository>()
+            .AddScoped<StudentMenu>()
+            .AddScoped<StudentRepository>()
+            .AddScoped<ViewRepository>()
             .AddScoped<Create>()
             .BuildServiceProvider();
     }
