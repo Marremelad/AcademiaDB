@@ -2,6 +2,7 @@
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
 using Microsoft.Extensions.Options;
+using Spectre.Console;
 
 namespace AcademiaDB.UserInterface.Menus;
 
@@ -25,17 +26,25 @@ public class MainMenu
     // Displays the main menu through the single choice prompt.
     public void DisplayMainMenu()
     {
-        var selection = Prompt.DisplaySingleChoicePrompt("Welcome to Academia!", MenuText.MainMenuText);
-
-        switch (selection)
+        while (true)
         {
-            case MenuText.Options.Employees:
-                _employeeMenu.DisplayEmployeeMenu();
-                break;
+            Console.Clear();
+            var selection = Prompt.DisplaySingleChoicePrompt("Welcome to Academia!", MenuText.MainMenuText);
+
+            switch (selection)
+            {
+                case MenuText.Options.Employees:
+                    _employeeMenu.DisplayEmployeeMenu();
+                    break;
             
-            case MenuText.Options.Students:
-                Console.WriteLine(_viewRepository.GetTopGrades());
-                break;
+                case MenuText.Options.Students:
+                    Console.WriteLine(_viewRepository.GetTopGrades());
+                    break;
+            }
+        
+            AnsiConsole.MarkupLine("\n[green]'Q'[/] to quit, or [green]Enter[/] to get back to the main menu");
+            
+            if (Console.ReadLine() == "Q".ToLower()) break;
         }
     }
 }
