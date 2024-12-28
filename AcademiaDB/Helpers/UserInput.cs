@@ -102,4 +102,18 @@ public static class UserInput
             Thread.Sleep(2000);
         }
     }
+    
+    // Get employee salary from user input.
+    public static decimal GetEmployeeSalary(string title)
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine(title);
+
+            if (decimal.TryParse(Console.ReadLine(), out var salary)) return salary;
+            Console.WriteLine("Invalid input.");
+            Thread.Sleep(2000);
+        }
+    }
 }
