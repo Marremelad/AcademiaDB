@@ -1,4 +1,5 @@
 ﻿using AcademiaDB.Data;
+using AcademiaDB.Helpers;
 using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.Menus;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,7 @@ public static class DiSetup
             .AddScoped<ViewRepository>()
             .AddScoped<EmployeeMenu>()
             .AddScoped<MainMenu>()
+            .AddScoped<Create>()
             .BuildServiceProvider();
     }
 }
