@@ -11,23 +11,22 @@ public class MenuText
         Courses,
         RecentlySetGrades,
         AddStudent,
-        AddEmployee,
         Exit,
         
         // Employee Menu.
         AllEmployees,
-        AllEmployeesWithAssignedRoles,
         Principal,
         Teacher,
         Administrator,
         Janitor,
         Security,
+        AddEmployee,
         
         // Student Menu.
-        SortByFirstName, // 15
-        SortByLastName, // 16
-        OrderByDescending, // 17
-        OrderByAscending, // 18
+        SortByFirstName, // 14
+        SortByLastName, // 15
+        OrderByDescending, // 16
+        OrderByAscending, // 17
         
         // Class Menu.
         SoftwareEngineering,
@@ -53,7 +52,6 @@ public class MenuText
     public static readonly Dictionary<string, Options> EmployeeMenuText = new()
     {
         { "All employees", Options.AllEmployees},
-        { "All employees with assigned roles", Options.AllEmployeesWithAssignedRoles},
         { "Principal", Options.Principal },
         { "Teachers", Options.Teacher },
         { "Administrators", Options.Administrator },
@@ -85,6 +83,7 @@ public class MenuText
         { "Teacher", Options.Teacher },
         { "Administrator", Options.Administrator },
         { "Janitor", Options.Janitor },
-        { "Security", Options.Security }
+        { "Security", Options.Security },
+        { "Add a new employee", Options.AddEmployee }
     };
 }
