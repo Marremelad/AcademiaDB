@@ -1,8 +1,8 @@
 ﻿using AcademiaDB.Models;
 
-namespace AcademiaDB.Repositories;
+namespace AcademiaDB.Helpers;
 
-public static class RepositoryHelpers
+public static class RepositoryHelper
 {
     // Calculates an employee's years in service.
     public static double GetEmployeeYearsInService(Employee employee)

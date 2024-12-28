@@ -1,4 +1,5 @@
 ﻿using AcademiaDB.Data;
+using AcademiaDB.Helpers;
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.SelectionPrompts;
 using Microsoft.EntityFrameworkCore;
@@ -47,7 +48,7 @@ public class EmployeeRepository
                $"Department: {employee.DepartmentIdFkNavigation.DepartmentName}\n" +
                $"Role: {employee.RoleIdFkNavigation.RoleName}\n" +
                $"Start Date: {employee.EmployeeStartDate}\n" +
-               $"Years In Service: {RepositoryHelpers.GetEmployeeYearsInService(employee):F1}";
+               $"Years In Service: {RepositoryHelper.GetEmployeeYearsInService(employee):F1}";
     }
     
     // Adds a new employee to the database.
