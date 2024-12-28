@@ -75,10 +75,6 @@ public class MenuText
         { "All students", Options.AllStudents },
         { "Filter students", Options.FilterStudents },
         { "Add a new student", Options.AddStudent },
-        { "Sort by First Name", Options.SortByFirstName },
-        { "Sort by Last Name", Options.SortByLastName },
-        { "Order by Descending", Options.OrderByDescending },
-        { "Order by Ascending", Options.OrderByAscending }
     };
     
     // Filter Students Menu Options.
