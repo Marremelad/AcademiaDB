@@ -2,6 +2,7 @@
 using AcademiaDB.Helpers;
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.SelectionPrompts;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace AcademiaDB.Repositories;
@@ -66,10 +67,20 @@ public class EmployeeRepository
             DepartmentIdFk = department,
             RoleIdFk = role
         };
-
-        _context.Employees.Add(newEmployee);
-        _context.SaveChanges();
-            
+        
+        try
+        {
+            _context.Employees.Add(newEmployee);
+            _context.SaveChanges();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Something went wrong while attempting to add a new employee to the database.\n" +
+                              "Make sure that the employees assigned role matches their assigned department.\n" +
+                              "Rolling back changes...");
+            return;
+        }
+        
         Console.Clear();
         Console.WriteLine("New employee added successfully.");
     }
