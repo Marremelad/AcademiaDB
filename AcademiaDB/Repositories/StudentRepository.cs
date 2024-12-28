@@ -1,6 +1,7 @@
 ﻿using System.Linq.Expressions;
 using AcademiaDB.Data;
 using AcademiaDB.Models;
+using AcademiaDB.UserInterface.SelectionPrompts;
 using Microsoft.EntityFrameworkCore;
 
 namespace AcademiaDB.Repositories;
@@ -12,6 +13,35 @@ public class StudentRepository
     public StudentRepository(AcademiaContext context)
     {
         _context = context;
+    }
+    
+    // Returns a list of Student objects.
+    public List<Student> GetStudents()
+    {
+        var students = _context.Students
+            .ToList();
+
+        return students;
+    }
+
+    public string GetStudentInformation()
+    {
+        var selection = Prompt.DisplaySingleChoicePrompt(
+            "Select a student to see their information.",
+            GetStudents());
+
+        var studentObject = (Student)selection;
+
+        var student = _context.Students
+            .Include(s => s.ClassIdFkNavigation)
+            .SingleOrDefault(s => s.StudentId == studentObject.StudentId);
+
+        if (student == null) return "No Information found.";
+
+        return $"Student Information\n" +
+               $"ID: {student.StudentId}" +
+               $"Name: {student.StudentFirstName} {student.StudentLastName}" +
+               $"Class: {student.ClassIdFkNavigation.ClassName}";
     }
     
      // Returns a string of all students and their classes ordered by specific input.
