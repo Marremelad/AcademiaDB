@@ -18,19 +18,22 @@ public class MenuText
         AllEmployees,
         AllEmployeesWithAssignedRoles,
         Principal,
-        Admins,
-        Teachers,
+        Teacher,
+        Administrator,
+        Janitor,
+        Security,
         
         // Student Menu.
-        SortByFirstName, // 13
-        SortByLastName, // 14
-        OrderByDescending, // 15
-        OrderByAscending, // 16
+        SortByFirstName, // 15
+        SortByLastName, // 16
+        OrderByDescending, // 17
+        OrderByAscending, // 18
         
         // Class Menu.
         SoftwareEngineering,
         DataScience,
         AiAndMachineLearning,
+        
     }
     
     // Main Menu Options.
@@ -52,8 +55,10 @@ public class MenuText
         { "All employees", Options.AllEmployees},
         { "All employees with assigned roles", Options.AllEmployeesWithAssignedRoles},
         { "Principal", Options.Principal },
-        { "Admins", Options.Admins },
-        { "Teachers", Options.Teachers },
+        { "Teachers", Options.Teacher },
+        { "Administrators", Options.Administrator },
+        { "Janitors", Options.Janitor },
+        { "Security", Options.Security },
     };
 
     // Student Menu Options.
@@ -71,5 +76,15 @@ public class MenuText
         { "SoftwareEngineering2024", Options.SoftwareEngineering },
         { "DataScience2024", Options.DataScience },
         { "AIAndMachineLearning2024", Options.AiAndMachineLearning }
+    };
+    
+    // Employee Role Assignment Options
+    public static readonly Dictionary<string, Options> EmployeeRoleMenuText = new()
+    {
+        { "Principal", Options.Principal },
+        { "Teacher", Options.Teacher },
+        { "Administrator", Options.Administrator },
+        { "Janitor", Options.Janitor },
+        { "Security", Options.Security }
     };
 }
