@@ -30,7 +30,15 @@ public class Create
         var firstName =  UserInput.GetFirstName("Please enter the new employees first name.");
         
         var lastName =  UserInput.GetLastName("Please enter the new employees last name.");
+
+        var ssn = UserInput.GetSsn("Please enter the new employees ssn.");
         
-        _employeeRepository.AddEmployeeToDatabase(firstName, lastName);
+        var startDate = UserInput.GetEmployeeStartDate("Please enter the new employees start date.");
+
+        var salary = UserInput.GetEmployeeSalary("Please enter the new employees salary");
+
+        var (department, role) = UserInput.GetEmployeeDepartmentAndRole("PLease enter the new employees role.");
+        
+        _employeeRepository.AddEmployeeToDatabase(firstName, lastName, ssn, startDate, salary, department, role);
     }
 }

@@ -53,12 +53,18 @@ public class EmployeeRepository
     }
     
     // Adds a new employee to the database.
-    public void AddEmployeeToDatabase(string firstName, string lastName)
+    public void AddEmployeeToDatabase(string firstName, string lastName, string ssn,
+        DateOnly startDate, decimal salary, int department, int role)
     {
         var newEmployee = new Employee()
         {
             EmployeeFirstName = firstName,
-            EmployeeLastName = lastName
+            EmployeeLastName = lastName,
+            EmployeeSsn = ssn,
+            EmployeeStartDate = startDate,
+            EmployeeSalary = salary,
+            DepartmentIdFk = department,
+            RoleIdFk = role
         };
 
         _context.Employees.Add(newEmployee);

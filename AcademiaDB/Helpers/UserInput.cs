@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Globalization;
+using System.Text.RegularExpressions;
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
 
@@ -83,25 +84,37 @@ public static class UserInput
         }
 
         return classId;
+        
+        // return (MenuText.Options)choice switch
+        // {
+        //     MenuText.Options.SoftwareEngineering => 1,
+        //     MenuText.Options.DataScience => 2,
+        //     MenuText.Options.AiAndMachineLearning => 3,
+        //     _ => 0 // Default case to handle unexpected values
+        // };
     }
     
     // Get employee start date from user input.
-    public static string GetEmployeeStartDate(string title)
+    public static DateOnly GetEmployeeStartDate(string title)
     {
-        const string pattern = @"^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$";
-
         while (true)
         {
             Console.Clear();
             Console.WriteLine(title);
+
+            var input = Console.ReadLine();
+
+            // Attempt to parse the input into a DateTime object
+            if (DateTime.TryParseExact(input, "yyyy-MM-dd",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out var startDate))
+                return DateOnly.FromDateTime(startDate);
             
-            var startDate = Console.ReadLine();
-            
-            if (startDate != null && Regex.IsMatch(startDate, pattern)) return startDate;
-            Console.WriteLine("Invalid date format.");
+            Console.WriteLine("Invalid date format. Please use yyyy-MM-dd.");
             Thread.Sleep(2000);
         }
     }
+
     
     // Get employee salary from user input.
     public static decimal GetEmployeeSalary(string title)
@@ -115,5 +128,24 @@ public static class UserInput
             Console.WriteLine("Invalid input.");
             Thread.Sleep(2000);
         }
+    }
+    
+    // Get employee role and department from user input.
+    public static (int, int) GetEmployeeDepartmentAndRole(string title)
+    {
+        Console.Clear();
+        var selection = Prompt.DisplaySingleChoicePrompt(title,
+            MenuText.EmployeeRoleMenuText);
+
+        // Assigns the correct department depending on the chosen role.
+        return (MenuText.Options)selection switch
+        {
+            MenuText.Options.Principal => (1, 1),
+            MenuText.Options.Teacher => (1, 2),
+            MenuText.Options.Administrator => (2, 3),
+            MenuText.Options.Janitor => (3, 4),
+            MenuText.Options.Security => (4, 5),
+            _ => (0, 0)
+        };
     }
 }
