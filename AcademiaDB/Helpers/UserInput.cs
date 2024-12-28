@@ -66,32 +66,14 @@ public static class UserInput
         
         var choice = Prompt.DisplaySingleChoicePrompt(title,
             MenuText.ClassMenuText);
-
-        int classId = 0;
-        switch ((MenuText.Options)choice)
-        {
-            case MenuText.Options.SoftwareEngineering:
-                classId = 1;
-                break;
-            
-            case MenuText.Options.DataScience:
-                classId = 2;
-                break;
-            
-            case MenuText.Options.AiAndMachineLearning:
-                classId = 3;
-                break;
-        }
-
-        return classId;
         
-        // return (MenuText.Options)choice switch
-        // {
-        //     MenuText.Options.SoftwareEngineering => 1,
-        //     MenuText.Options.DataScience => 2,
-        //     MenuText.Options.AiAndMachineLearning => 3,
-        //     _ => 0 // Default case to handle unexpected values
-        // };
+        return (MenuText.Options)choice switch
+        {
+            MenuText.Options.SoftwareEngineering => 1,
+            MenuText.Options.DataScience => 2,
+            MenuText.Options.AiAndMachineLearning => 3,
+            _ => 0
+        };
     }
     
     // Get employee start date from user input.
