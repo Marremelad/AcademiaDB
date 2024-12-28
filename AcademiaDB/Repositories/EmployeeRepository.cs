@@ -50,6 +50,22 @@ public class EmployeeRepository
                $"Years In Service: {GetEmployeeYearsInService(employee):F1}";
     }
     
+    // Adds a new employee to the database.
+    public void AddEmployeeToDatabase(string firstName, string lastName)
+    {
+        var newEmployee = new Employee()
+        {
+            EmployeeFirstName = firstName,
+            EmployeeLastName = lastName
+        };
+
+        _context.Employees.Add(newEmployee);
+        _context.SaveChanges();
+            
+        Console.Clear();
+        Console.WriteLine("New employee added successfully.");
+    }
+    
     // Calculates an employee's years in service.
     private double GetEmployeeYearsInService(Employee employee)
     {
