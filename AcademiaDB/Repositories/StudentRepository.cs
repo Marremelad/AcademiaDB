@@ -30,7 +30,7 @@ public class StudentRepository
             .Select(s =>
                 $"Name: {s.StudentFirstName} " +
                 $"{s.StudentLastName}, " +
-                $"Class: {s.ClassIdFkNavigation.ClassName}"));
+                $"{s.ClassIdFkNavigation.ClassName}"));
 
         return string.IsNullOrEmpty(result) ? "No students found." : result;
     }
