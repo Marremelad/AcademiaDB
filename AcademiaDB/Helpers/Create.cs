@@ -11,7 +11,7 @@ public class Create
         _employeeRepository = employeeRepository;
     }
     
-    public static void CreateNewStudent()
+    public  void CreateNewStudent()
     {
         var firstName = UserInput.GetFirstName("Please enter the new students first name.");
         
