@@ -47,7 +47,7 @@ public class EmployeeRepository
                $"Department: {employee.DepartmentIdFkNavigation.DepartmentName}\n" +
                $"Role: {employee.RoleIdFkNavigation.RoleName}\n" +
                $"Start Date: {employee.EmployeeStartDate}\n" +
-               $"Years In Service: {GetEmployeeYearsInService(employee):F1}";
+               $"Years In Service: {RepositoryHelpers.GetEmployeeYearsInService(employee):F1}";
     }
     
     // Adds a new employee to the database.
@@ -64,16 +64,5 @@ public class EmployeeRepository
             
         Console.Clear();
         Console.WriteLine("New employee added successfully.");
-    }
-    
-    // Calculates an employee's years in service.
-    private double GetEmployeeYearsInService(Employee employee)
-    {
-        DateTime startDateTime = employee.EmployeeStartDate.ToDateTime(TimeOnly.MinValue);
-        TimeSpan timeSpan = DateTime.Now - startDateTime;
-        
-        var yearsInService = timeSpan.TotalDays / 365.25;
-
-        return yearsInService;
     }
 }
