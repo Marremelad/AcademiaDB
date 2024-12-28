@@ -57,6 +57,17 @@ public class MenuText
         { "Administrators", Options.Administrator },
         { "Janitors", Options.Janitor },
         { "Security", Options.Security },
+        { "Add a new employee", Options.AddEmployee }
+    };
+    
+    // Employee Role Assignment Options
+    public static readonly Dictionary<string, Options> EmployeeRoleMenuText = new()
+    {
+        { "Principal", Options.Principal },
+        { "Teacher", Options.Teacher },
+        { "Administrator", Options.Administrator },
+        { "Janitor", Options.Janitor },
+        { "Security", Options.Security },
     };
 
     // Student Menu Options.
@@ -74,16 +85,5 @@ public class MenuText
         { "SoftwareEngineering2024", Options.SoftwareEngineering },
         { "DataScience2024", Options.DataScience },
         { "AIAndMachineLearning2024", Options.AiAndMachineLearning }
-    };
-    
-    // Employee Role Assignment Options
-    public static readonly Dictionary<string, Options> EmployeeRoleMenuText = new()
-    {
-        { "Principal", Options.Principal },
-        { "Teacher", Options.Teacher },
-        { "Administrator", Options.Administrator },
-        { "Janitor", Options.Janitor },
-        { "Security", Options.Security },
-        { "Add a new employee", Options.AddEmployee }
     };
 }
