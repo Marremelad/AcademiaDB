@@ -28,7 +28,7 @@ public class StudentRepository
 
         var result = string.Join("\n", query
             .Select(s =>
-                $"Name: {s.StudentFirstName} " +
+                $"{s.StudentFirstName} " +
                 $"{s.StudentLastName}, " +
                 $"{s.ClassIdFkNavigation.ClassName}"));
 
