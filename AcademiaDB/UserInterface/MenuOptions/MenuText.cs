@@ -25,6 +25,8 @@ public class MenuText
         AllStudents,
         FilterStudents,
         AddStudent,
+        
+        // Order Students By Menu
         SortByFirstName, // 14
         SortByLastName, // 15
         OrderByDescending, // 16
@@ -77,8 +79,8 @@ public class MenuText
         { "Add a new student", Options.AddStudent },
     };
     
-    // Filter Students Menu Options.
-    public static readonly Dictionary<string, Options> FilterStudentsMenuText = new()
+    // Order Students By Menu Options.
+    public static readonly Dictionary<string, Options> OrderStudentsByMenuText = new()
     {
         { "Sort by First Name", Options.SortByFirstName },
         { "Sort by Last Name", Options.SortByLastName },
