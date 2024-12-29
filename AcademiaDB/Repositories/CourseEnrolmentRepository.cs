@@ -1,7 +1,6 @@
 ﻿using AcademiaDB.Data;
 using AcademiaDB.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using Prompt = AcademiaDB.UserInterface.SelectionPrompts.Prompt;
 
 namespace AcademiaDB.Repositories;
@@ -15,6 +14,9 @@ public class CourseEnrolmentRepository
         _context = context;
     }
 
+    
+    // Displays a list of all courses that a student has been enrolled into.
+    // User can then select one of the courses to see the enrolment information.
     public string GetStudentCourseEnrolments(int studentId)
     {
         var courseEnrolments = _context.CourseEnrolments
@@ -29,6 +31,8 @@ public class CourseEnrolmentRepository
         return GetInformationString(courseEnrolmentObject);
     }
     
+    
+    // Returns a string with the chosen course enrolment information.
     private string GetInformationString(CourseEnrolment courseEnrolmentObject)
     {
         var courseEnrolment = _context.CourseEnrolments
@@ -50,6 +54,5 @@ public class CourseEnrolmentRepository
                $"Grade set by: {courseEnrolment.GradeSetterFkNavigation?.EmployeeFirstName} " +
                $"{courseEnrolment.GradeSetterFkNavigation?.EmployeeLastName}\n" +
                $"Grading date: {courseEnrolment.GradingDate}";
-
     }
 }
