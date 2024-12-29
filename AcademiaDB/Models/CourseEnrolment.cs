@@ -1,5 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
+using AcademiaDB.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace AcademiaDB.Models;
 
@@ -22,4 +23,17 @@ public partial class CourseEnrolment
     public virtual Employee? GradeSetterFkNavigation { get; set; }
 
     public virtual Student StudentIdFkNavigation { get; set; } = null!;
+
+    // Returns a string with the name of the course in the CourseEnrolment.
+    public override string ToString()
+    {
+        using (var context = new AcademiaContext())
+        {
+            var courseEnrolment = context.CourseEnrolments
+                .Include(i => i.CourseIdFkNavigation)
+                .SingleOrDefault(ce => ce.EnrolmentId == EnrolmentId);
+
+            return $"{courseEnrolment?.CourseIdFkNavigation.CourseName}";
+        }
+    }
 }
