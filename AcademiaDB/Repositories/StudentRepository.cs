@@ -35,7 +35,7 @@ public class StudentRepository
     
     // Displays a single choice prompt of student objects ordered by specific input.
     // User can select on of the objects and see the students information.
-    public string GetOrderedStudentInformation<T>(
+    public (string, int) GetOrderedStudentInformation<T>(
         Expression<Func<Student, T>> orderByExpression,
         bool descending)
     {
@@ -51,7 +51,7 @@ public class StudentRepository
 
         var studentObject = (Student)selection;
 
-        return GetInformationString(studentObject);
+        return (GetInformationString(studentObject), studentObject.StudentId);
     }
 
     // Returns a string with the chosen student's information.
@@ -67,7 +67,6 @@ public class StudentRepository
                $"ID: {student.StudentId}\n" +
                $"Name: {student.StudentFirstName} {student.StudentLastName}\n" +
                $"Class: {student.ClassIdFkNavigation.ClassName}\n";
-        
     }
     
     // Returns a string of students filtered by class name.
@@ -96,7 +95,6 @@ public class StudentRepository
         });
 
         return string.IsNullOrEmpty(result) ? "No students found." : result;
-
     }
     
     // Adds a student to the database.

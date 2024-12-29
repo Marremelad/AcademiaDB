@@ -8,10 +8,14 @@ namespace AcademiaDB.UserInterface.Menus;
 public class OrderStudentsByMenu
 {
     private StudentRepository _studentRepository;
+    private CourseEnrolmentRepository _courseEnrolmentRepository;
 
-    public OrderStudentsByMenu(StudentRepository studentRepository)
+    public OrderStudentsByMenu(
+        StudentRepository studentRepository,
+        CourseEnrolmentRepository courseEnrolmentRepository)
     {
         _studentRepository = studentRepository;
+        _courseEnrolmentRepository = courseEnrolmentRepository;
     }
 
     public void DisplayOrderStudentsByMenu()
@@ -29,7 +33,9 @@ public class OrderStudentsByMenu
             if (PromptHelper.IsValidCombination(choice))
             {
                 var (sortBy, orderBy) = PromptHelper.ApplyOptions(choice);
-                Console.WriteLine(_studentRepository.GetOrderedStudentInformation(sortBy, orderBy));
+                var (studentInformation, studentId) = _studentRepository.GetOrderedStudentInformation(sortBy, orderBy);
+                Console.WriteLine(studentInformation);
+                Console.WriteLine(_courseEnrolmentRepository.GetStudentCourseEnrolments(studentId));
                 break;
             }
             Console.WriteLine("Invalid combination selected.");
