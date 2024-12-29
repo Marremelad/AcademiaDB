@@ -13,27 +13,27 @@ public class Prompt
         var moreChoicesText = "Move up and down to reveal more options";
         
         // Handles a dictionary of type string and Menutext.Options.
-        if (choices is Dictionary<string, MenuText.Options> dictString)
+        if (choices is Dictionary<string, MenuText.Options> stringDict)
         {
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title(title)
                     .PageSize(10)
                     .MoreChoicesText(moreChoicesText)
-                    .AddChoices(dictString.Keys));
+                    .AddChoices(stringDict.Keys));
 
-            return dictString[choice];
+            return stringDict[choice];
         }
 
         // Handles a list of type string.
-        if (choices is List<string> listString)
+        if (choices is List<string> stringList)
         {
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title(title)
                     .PageSize(10)
                     .MoreChoicesText(moreChoicesText)
-                    .AddChoices(listString));
+                    .AddChoices(stringList));
             
             return choice;
         }
