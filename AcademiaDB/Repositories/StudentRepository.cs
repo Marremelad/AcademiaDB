@@ -54,6 +54,7 @@ public class StudentRepository
         return GetInformationString(studentObject);
     }
 
+    // Returns a string with the chosen student's information.
     private string GetInformationString(Student studentObject)
     {
         var student = _context.Students
