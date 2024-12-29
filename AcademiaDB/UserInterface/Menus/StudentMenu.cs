@@ -7,10 +7,14 @@ namespace AcademiaDB.UserInterface.Menus;
 public class StudentMenu
 {
     private StudentRepository _studentRepository;
+    private OrderStudentsByMenu _orderStudentsByMenu;
 
-    public StudentMenu(StudentRepository studentRepository)
+    public StudentMenu(
+        StudentRepository studentRepository,
+        OrderStudentsByMenu orderStudentsByMenu)
     {
         _studentRepository = studentRepository;
+        _orderStudentsByMenu = orderStudentsByMenu;
     }
 
     public void DisplayStudentMenu()
@@ -20,7 +24,12 @@ public class StudentMenu
         switch (selection)
         {
             case MenuText.Options.AllStudents:
-                _studentRepository.GetStudentInformation();
+                Console.WriteLine(_studentRepository.GetStudentInformation());
+                // _studentRepository.GetStudents();
+                break;
+            
+            case MenuText.Options.OrderedStudents:
+                _orderStudentsByMenu.DisplayOrderStudentsByMenu();
                 break;
         }
     }

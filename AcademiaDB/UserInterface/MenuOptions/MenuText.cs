@@ -23,14 +23,14 @@ public class MenuText
         
         // Student Menu.
         AllStudents,
-        FilterStudents,
+        OrderedStudents,
         AddStudent,
         
         // Order Students By Menu
-        SortByFirstName, // 14
-        SortByLastName, // 15
-        OrderByDescending, // 16
-        OrderByAscending, // 17
+        SortByFirstName, // 16
+        SortByLastName, // 17
+        OrderByDescending, // 18
+        OrderByAscending, // 19
         
         // Class Menu.
         SoftwareEngineering,
@@ -75,7 +75,7 @@ public class MenuText
     public static readonly Dictionary<string, Options> StudentMenuText = new()
     {
         { "All students", Options.AllStudents },
-        { "Filter students", Options.FilterStudents },
+        { "Order students", Options.OrderedStudents },
         { "Add a new student", Options.AddStudent },
     };
     
