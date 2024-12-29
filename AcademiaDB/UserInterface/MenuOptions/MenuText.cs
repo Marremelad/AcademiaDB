@@ -37,6 +37,9 @@ public class MenuText
         DataScience,
         AiAndMachineLearning,
         
+        // Update Grade.
+        UpdateGrade,
+        
     }
     
     // Main Menu Options.
@@ -94,5 +97,12 @@ public class MenuText
         { "SoftwareEngineering2024", Options.SoftwareEngineering },
         { "DataScience2024", Options.DataScience },
         { "AIAndMachineLearning2024", Options.AiAndMachineLearning }
+    };
+    
+    // Update Grade Oprions.
+    public static readonly Dictionary<string, Options> UpdateGradeText = new()
+    {
+        { "Update Grade", Options.UpdateGrade },
+        { "Exit", Options.Exit }
     };
 }
