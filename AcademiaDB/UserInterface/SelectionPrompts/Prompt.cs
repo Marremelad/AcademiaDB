@@ -39,18 +39,30 @@ public class Prompt
         }
         
         // Handles a list of type Employee.
-        if (choices is List<Employee> listEmployee)
+        if (choices is List<Employee> employeeList)
         {
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<Employee>()
                     .Title(title)
                     .PageSize(10)
                     .MoreChoicesText(moreChoicesText)
-                    .AddChoices(listEmployee));
+                    .AddChoices(employeeList));
             
             return choice;
         }
-
+        
+        if (choices is List<Student> studentList)
+        {
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<Student>()
+                    .Title(title)
+                    .PageSize(10)
+                    .MoreChoicesText(moreChoicesText)
+                    .AddChoices(studentList));
+            
+            return choice;
+        }
+        
         throw new ArgumentException("Invalid choice type provided.");
     }
 
