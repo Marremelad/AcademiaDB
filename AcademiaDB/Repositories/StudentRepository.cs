@@ -68,7 +68,7 @@ public class StudentRepository
                $"Name: {student.StudentFirstName} {student.StudentLastName}\n" +
                $"Class: {student.ClassIdFkNavigation.ClassName}";
     }
-
+    
     // Returns a string of students filtered by class name.
     public string DisplayStudentsFilteredByClass<TKey>(
         Expression<Func<Student, TKey>> orderByExpression,
@@ -115,5 +115,4 @@ public class StudentRepository
         Console.Clear();
         Console.WriteLine("New student added successfully.");
     }
-   
 }
