@@ -9,6 +9,8 @@ public partial class Course
 
     public string CourseName { get; set; } = null!;
 
+    public bool Active { get; set; }
+
     public virtual ICollection<CourseAssignment> CourseAssignments { get; set; } = new List<CourseAssignment>();
 
     public virtual ICollection<CourseEnrolment> CourseEnrolments { get; set; } = new List<CourseEnrolment>();
