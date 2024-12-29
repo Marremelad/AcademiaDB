@@ -63,6 +63,18 @@ public class Prompt
             return choice;
         }
         
+        if (choices is List<CourseEnrolment> courseEnrolmentList)
+        {
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<CourseEnrolment>()
+                    .Title(title)
+                    .PageSize(10)
+                    .MoreChoicesText(moreChoicesText)
+                    .AddChoices(courseEnrolmentList));
+            
+            return choice;
+        }
+        
         throw new ArgumentException("Invalid choice type provided.");
     }
 

@@ -8,13 +8,16 @@ public class StudentMenu
 {
     private StudentRepository _studentRepository;
     private OrderStudentsByMenu _orderStudentsByMenu;
+    private CourseEnrolmentRepository _courseEnrolmentRepository;
 
     public StudentMenu(
         StudentRepository studentRepository,
-        OrderStudentsByMenu orderStudentsByMenu)
+        OrderStudentsByMenu orderStudentsByMenu,
+        CourseEnrolmentRepository courseEnrolmentRepository)
     {
         _studentRepository = studentRepository;
         _orderStudentsByMenu = orderStudentsByMenu;
+        _courseEnrolmentRepository = courseEnrolmentRepository;
     }
 
     public void DisplayStudentMenu()
@@ -24,8 +27,9 @@ public class StudentMenu
         switch (selection)
         {
             case MenuText.Options.AllStudents:
-                Console.WriteLine(_studentRepository.GetStudentInformation());
-                // _studentRepository.GetStudents();
+                var (studentInformation, studentId) = _studentRepository.GetStudentInformation();
+                Console.WriteLine(studentInformation);
+                Console.WriteLine(_courseEnrolmentRepository.GetStudentCourseEnrolments(studentId));
                 break;
             
             case MenuText.Options.OrderedStudents:

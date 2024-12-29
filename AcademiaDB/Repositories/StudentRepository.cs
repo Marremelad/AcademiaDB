@@ -19,7 +19,7 @@ public class StudentRepository
     
     // Displays a single choice prompt of student objects.
     // User can select on of the objects and see the students information.
-    public string GetStudentInformation()
+    public (string, int) GetStudentInformation()
     {
         var students = _context.Students
             .ToList();
@@ -30,7 +30,7 @@ public class StudentRepository
         
         var studentObject = (Student)selection;
 
-        return GetInformationString(studentObject);
+        return (GetInformationString(studentObject), studentObject.StudentId);
     }
     
     // Displays a single choice prompt of student objects ordered by specific input.
@@ -66,7 +66,8 @@ public class StudentRepository
         return $"Student Information\n" +
                $"ID: {student.StudentId}\n" +
                $"Name: {student.StudentFirstName} {student.StudentLastName}\n" +
-               $"Class: {student.ClassIdFkNavigation.ClassName}";
+               $"Class: {student.ClassIdFkNavigation.ClassName}\n";
+        
     }
     
     // Returns a string of students filtered by class name.
