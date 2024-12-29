@@ -1,8 +1,10 @@
 ﻿using System.Linq.Expressions;
+using System.Transactions;
 using AcademiaDB.Data;
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.SelectionPrompts;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AcademiaDB.Repositories;
 
@@ -15,54 +17,55 @@ public class StudentRepository
         _context = context;
     }
     
-    // Returns a list of Student objects.
-    public List<Student> GetStudents()
+    // Displays a single choice prompt of student objects.
+    // User can select on of the objects and see the students information.
+    public string GetStudentInformation()
     {
         var students = _context.Students
             .ToList();
-
-        return students;
-    }
-
-    public string GetStudentInformation()
-    {
+        
         var selection = Prompt.DisplaySingleChoicePrompt(
             "Select a student to see their information.",
-            GetStudents());
-
+            students);
+        
         var studentObject = (Student)selection;
 
-        var student = _context.Students
-            .Include(s => s.ClassIdFkNavigation)
-            .SingleOrDefault(s => s.StudentId == studentObject.StudentId);
-
-        if (student == null) return "No Information found.";
-
-        return $"Student Information\n" +
-               $"ID: {student.StudentId}" +
-               $"Name: {student.StudentFirstName} {student.StudentLastName}" +
-               $"Class: {student.ClassIdFkNavigation.ClassName}";
+        return GetInformationString(studentObject);
     }
     
-     // Returns a string of all students and their classes ordered by specific input.
-    public string DisplayStudentsWithClasses<T>(
+    // Displays a single choice prompt of student objects ordered by specific input.
+    // User can select on of the objects and see the students information.
+    public string GetOrderedStudentInformation<T>(
         Expression<Func<Student, T>> orderByExpression,
         bool descending)
     {
-        IQueryable<Student> query = _context.Students
-            .Include(i => i.ClassIdFkNavigation);
+        IQueryable<Student> students = _context.Students;
 
-        query = descending
-            ? query.OrderByDescending(orderByExpression)
-            : query.OrderBy(orderByExpression);
+        students = descending
+            ? students.OrderByDescending(orderByExpression)
+            : students.OrderBy(orderByExpression);
 
-        var result = string.Join("\n", query
-            .Select(s =>
-                $"{s.StudentFirstName} " +
-                $"{s.StudentLastName}, " +
-                $"{s.ClassIdFkNavigation.ClassName}"));
+        var selection = Prompt.DisplaySingleChoicePrompt(
+                "Select a student to see their information", 
+                students.ToList());
 
-        return string.IsNullOrEmpty(result) ? "No students found." : result;
+        var studentObject = (Student)selection;
+
+        return GetInformationString(studentObject);
+    }
+
+    private string GetInformationString(Student studentObject)
+    {
+        var student = _context.Students
+            .Include(s => s.ClassIdFkNavigation)
+            .SingleOrDefault(s => s.StudentId == studentObject.StudentId);
+        
+        if (student == null) return "No Information found.";
+        
+        return $"Student Information\n" +
+               $"ID: {student.StudentId}\n" +
+               $"Name: {student.StudentFirstName} {student.StudentLastName}\n" +
+               $"Class: {student.ClassIdFkNavigation.ClassName}";
     }
 
     // Returns a string of students filtered by class name.
