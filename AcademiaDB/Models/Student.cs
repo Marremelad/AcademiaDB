@@ -21,6 +21,6 @@ public partial class Student
 
     public override string ToString()
     {
-        return $"{StudentFirstName} {StudentLastName} {ClassIdFkNavigation.ClassName}";
+        return $"{StudentFirstName} {StudentLastName}";
     }
 }
