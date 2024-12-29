@@ -13,7 +13,6 @@ public class CourseEnrolmentRepository
     {
         _context = context;
     }
-
     
     // Displays a list of all courses that a student has been enrolled into.
     // User can then select one of the courses to see the enrolment information.
@@ -30,7 +29,6 @@ public class CourseEnrolmentRepository
 
         return GetInformationString(courseEnrolmentObject);
     }
-    
     
     // Returns a string with the chosen course enrolment information.
     private string GetInformationString(CourseEnrolment courseEnrolmentObject)
