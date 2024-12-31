@@ -18,7 +18,7 @@ public class StudentRepository
     }
     
     // Displays a single choice prompt of student objects.
-    // User can select on of the objects and see the students information.
+    // User can select one of the student objects and see the student's information.
     public (string, int) GetStudentInformation()
     {
         var students = _context.Students
@@ -34,7 +34,7 @@ public class StudentRepository
     }
     
     // Displays a single choice prompt of student objects ordered by specific input.
-    // User can select on of the objects and see the students information.
+    // User can select one of the student objects and see the student's information.
     public (string, int) GetOrderedStudentInformation<T>(
         Expression<Func<Student, T>> orderByExpression,
         bool descending)
