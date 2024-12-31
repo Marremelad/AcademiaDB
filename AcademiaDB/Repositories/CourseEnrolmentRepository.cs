@@ -56,6 +56,7 @@ public class CourseEnrolmentRepository
                $"Grading date: {courseEnrolment.GradingDate}";
     }
     
+    // Displays the options for updating a students grade.
     public void UpdateGradeOptions(int enrolmentId)
     {
         var selection = Prompt.DisplaySingleChoicePrompt("", MenuText.UpdateGradeText);
@@ -71,6 +72,8 @@ public class CourseEnrolmentRepository
         }
     }
 
+    // User gets to select a grade.
+    // If a student already has a grade, that grade can not be chosen. 
     private void SelectValidGrade(int enrolmentId)
     {
         var grade = _context.CourseEnrolments
@@ -96,6 +99,7 @@ public class CourseEnrolmentRepository
         UpdateCourseGrade(enrolmentId, stringObject);
     }
     
+    // Updates the students grade in a selected course.
     private void UpdateCourseGrade(int enrolmentId, string grade)
     {
         var courseEnrolment = _context.CourseEnrolments
@@ -107,10 +111,11 @@ public class CourseEnrolmentRepository
             return;
         }
 
+        // Makes sure that the grade is valid.
+        // If an invalid grade is set make sure that the SQL trigger is configured correctly.
         try
         {
             courseEnrolment.Grade = grade;
-            // var currentDate = DateTime.Now;
             courseEnrolment.GradingDate = DateOnly.FromDateTime(DateTime.Today);
             _context.SaveChanges();
         }
