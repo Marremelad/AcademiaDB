@@ -39,6 +39,9 @@ public class StudentMenu
             case MenuText.Options.OrderedStudents:
                 _orderStudentsByMenu.DisplayOrderStudentsByMenu();
                 break;
+            
+            case MenuText.Options.Exit:
+                return;
         }
     }
 }
