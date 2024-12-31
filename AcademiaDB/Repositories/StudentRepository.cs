@@ -63,7 +63,7 @@ public class StudentRepository
         
         if (student == null) return "No Information found.";
         
-        return $"Student Information\n" +
+        return $"Student Information\n\n" +
                $"ID: {student.StudentId}\n" +
                $"Name: {student.StudentFirstName} {student.StudentLastName}\n" +
                $"Class: {student.ClassIdFkNavigation.ClassName}\n";
