@@ -34,6 +34,9 @@ public class EmployeeMenu
             case MenuText.Options.AddEmployee:
                 _create.CreateNewEmployee();
                 break;
+            
+            case MenuText.Options.Exit:
+                return;
         }
     }
 }
