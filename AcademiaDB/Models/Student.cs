@@ -18,7 +18,7 @@ public partial class Student
     public virtual Class ClassIdFkNavigation { get; set; } = null!;
 
     public virtual ICollection<CourseEnrolment> CourseEnrolments { get; set; } = new List<CourseEnrolment>();
-
+    
     public override string ToString()
     {
         return $"{StudentFirstName} {StudentLastName}";
