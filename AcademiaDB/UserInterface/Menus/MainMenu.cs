@@ -41,6 +41,9 @@ public class MainMenu
                 case MenuText.Options.Students:
                     _studentMenu.DisplayStudentMenu();
                     break;
+                
+                case MenuText.Options.Exit:
+                    return;
             }
         
             AnsiConsole.MarkupLine("\n[green]'Q'[/] to quit, or [green]Enter[/] to get back to the main menu");
