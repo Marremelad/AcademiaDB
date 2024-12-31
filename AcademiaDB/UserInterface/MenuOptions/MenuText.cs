@@ -38,8 +38,7 @@ public class MenuText
         AiAndMachineLearning,
         
         // Update Grade.
-        UpdateGrade,
-        
+        UpdateGrade
     }
     
     // Main Menu Options.
@@ -99,7 +98,7 @@ public class MenuText
         { "AIAndMachineLearning2024", Options.AiAndMachineLearning }
     };
     
-    // Update Grade Oprions.
+    // Update Grade Options.
     public static readonly Dictionary<string, Options> UpdateGradeText = new()
     {
         { "Update Grade", Options.UpdateGrade },
