@@ -30,6 +30,7 @@ public class StudentMenu
             case MenuText.Options.AllStudents:
                 var (studentInformation, studentId) = _studentRepository.GetStudentInformation();
                 Console.WriteLine(studentInformation);
+                
                 var (enrolmentInformation, enrolmentId) = _courseEnrolmentRepository.GetStudentCourseEnrolments(studentId);
                 Console.WriteLine(enrolmentInformation);
                 _courseEnrolmentRepository.UpdateGradeOptions(enrolmentId);
