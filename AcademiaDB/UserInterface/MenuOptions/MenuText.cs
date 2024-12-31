@@ -61,7 +61,8 @@ public class MenuText
         { "Administrators", Options.Administrator },
         { "Janitors", Options.Janitor },
         { "Security", Options.Security },
-        { "Add a new employee", Options.AddEmployee }
+        { "Add a new employee", Options.AddEmployee },
+        {"Exit", Options.Exit}
     };
     
     // Employee Role Assignment Options
@@ -71,6 +72,7 @@ public class MenuText
         { "Administrator", Options.Administrator },
         { "Janitor", Options.Janitor },
         { "Security", Options.Security },
+        {"Exit", Options.Exit}
     };
 
     // Student Menu Options.
@@ -79,6 +81,7 @@ public class MenuText
         { "All students", Options.AllStudents },
         { "Order students", Options.OrderedStudents },
         { "Add a new student", Options.AddStudent },
+        {"Exit", Options.Exit}
     };
     
     // Order Students By Menu Options.
@@ -95,7 +98,8 @@ public class MenuText
     {
         { "SoftwareEngineering2024", Options.SoftwareEngineering },
         { "DataScience2024", Options.DataScience },
-        { "AIAndMachineLearning2024", Options.AiAndMachineLearning }
+        { "AIAndMachineLearning2024", Options.AiAndMachineLearning },
+        {"Exit", Options.Exit}
     };
     
     // Update Grade Options.
