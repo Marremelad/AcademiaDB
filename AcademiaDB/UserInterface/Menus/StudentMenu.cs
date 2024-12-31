@@ -1,4 +1,5 @@
-﻿using AcademiaDB.Repositories;
+﻿using AcademiaDB.Helpers;
+using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
 
@@ -29,7 +30,9 @@ public class StudentMenu
             case MenuText.Options.AllStudents:
                 var (studentInformation, studentId) = _studentRepository.GetStudentInformation();
                 Console.WriteLine(studentInformation);
-                Console.WriteLine(_courseEnrolmentRepository.GetStudentCourseEnrolments(studentId));
+                var (enrolmentInformation, enrolmentId) = _courseEnrolmentRepository.GetStudentCourseEnrolments(studentId);
+                Console.WriteLine(enrolmentInformation);
+                _courseEnrolmentRepository.UpdateGradeOptions(enrolmentId);
                 break;
             
             case MenuText.Options.OrderedStudents:
