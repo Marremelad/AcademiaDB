@@ -1,4 +1,5 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
 using AcademiaDB.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,14 +17,14 @@ public partial class CourseEnrolment
 
     public int? GradeSetterFk { get; set; }
 
-    public int? GradingDate { get; set; }
+    public DateOnly? GradingDate { get; set; }
 
     public virtual Course CourseIdFkNavigation { get; set; } = null!;
 
     public virtual Employee? GradeSetterFkNavigation { get; set; }
 
     public virtual Student StudentIdFkNavigation { get; set; } = null!;
-
+    
     // Returns a string with the name of the course in the CourseEnrolment.
     public override string ToString()
     {
@@ -36,4 +37,5 @@ public partial class CourseEnrolment
             return $"{courseEnrolment?.CourseIdFkNavigation.CourseName}";
         }
     }
+
 }
