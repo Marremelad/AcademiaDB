@@ -5,13 +5,17 @@ namespace AcademiaDB.Helpers;
 public class Create
 {
     private EmployeeRepository _employeeRepository;
+    private StudentRepository _studentRepository;
 
-    public Create(EmployeeRepository employeeRepository)
+    public Create(
+        EmployeeRepository employeeRepository,
+        StudentRepository studentRepository)
     {
         _employeeRepository = employeeRepository;
+        _studentRepository = studentRepository;
     }
     
-    public  void CreateNewStudent()
+    public void CreateNewStudent()
     {
         var firstName = UserInput.GetFirstName("Please enter the new students first name.");
         
@@ -21,7 +25,7 @@ public class Create
         
         var classId = UserInput.GetClassId("What class should the new student be enrolled into?");
 
-        // StudentRepository.AddStudentToDatabase(firstName, lastName, ssn, classId);
+        _studentRepository.AddStudentToDatabase(firstName, lastName, ssn, classId);
     }
 
     // Get user input to create a new employee.
