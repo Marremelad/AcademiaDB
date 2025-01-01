@@ -69,9 +69,11 @@ public static class UserInput
         
         return (MenuText.Options)choice switch
         {
-            MenuText.Options.SoftwareEngineering => 1,
-            MenuText.Options.DataScience => 2,
-            MenuText.Options.AiAndMachineLearning => 3,
+            MenuText.Options.A1 => 1,
+            MenuText.Options.B2 => 2,
+            MenuText.Options.C3 => 3,
+            MenuText.Options.D4 => 4,
+            MenuText.Options.E5 => 5,
             _ => 0
         };
     }
