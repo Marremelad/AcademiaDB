@@ -15,6 +15,7 @@ public class ClassRepository
         _context = context;
     }
 
+    // Returns a list of class objects.
     public List<Class> GetClasses()
     {
         var classes = _context.Classes
@@ -23,6 +24,8 @@ public class ClassRepository
         return classes;
     }
 
+    // Displays a prompt with all classes in the database.
+    // The selected class object is then used to filter the query and get the class's information.
     public string GetClassInformation()
     {
         var classes = GetClasses();
@@ -33,6 +36,7 @@ public class ClassRepository
         return GetInformationString(classObject);
     }
 
+    // Returns a string with the selected class's information.
     public string GetInformationString(Class classObject)
     {
         var thisClass = _context.Classes

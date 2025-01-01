@@ -94,7 +94,7 @@ public class EmployeeRepository
         return GetInformationString(employeeObject);
     }
     
-    // Returns a string with the chosen employee's information.
+    // Returns a string with the selected employee's information.
     private string GetInformationString(Employee employeeObject)
     {
         var employee = _context.Employees
