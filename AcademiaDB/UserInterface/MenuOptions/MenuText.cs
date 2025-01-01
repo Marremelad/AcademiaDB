@@ -51,6 +51,7 @@ public class MenuText
     public static readonly Dictionary<string, Options> MainMenuText = new()
     {
         { "Employees", Options.Employees },
+        { "Departments", Options.Departments },
         { "Students", Options.Students },
         { "Classes", Options.Classes },
         { "Courses", Options.Courses },
