@@ -21,6 +21,7 @@ public partial class Student
 
     public virtual ICollection<CourseEnrolment> CourseEnrolments { get; set; } = new List<CourseEnrolment>();
     
+    // Returns a string with the student's name and class.
     public override string ToString()
     {
         using (var context = new AcademiaContext())

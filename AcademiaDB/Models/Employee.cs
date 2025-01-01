@@ -33,6 +33,7 @@ public partial class Employee
 
     public virtual Role RoleIdFkNavigation { get; set; } = null!;
     
+    // Returns a string with the employees name and role.
     public override string ToString()
     {
         using (var context = new AcademiaContext())
