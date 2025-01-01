@@ -87,6 +87,18 @@ public class Prompt
             return selection;
         }
         
+        if (options is List<Department> departmentList)
+        {
+            var selection = AnsiConsole.Prompt(
+                new SelectionPrompt<Department>()
+                    .Title(title)
+                    .PageSize(10)
+                    .MoreChoicesText(moreChoicesText)
+                    .AddChoices(departmentList));
+            
+            return selection;
+        }
+        
         throw new ArgumentException("Invalid choice type provided.");
     }
 
