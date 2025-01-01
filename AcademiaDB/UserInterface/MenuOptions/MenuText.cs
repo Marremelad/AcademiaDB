@@ -69,6 +69,16 @@ public class MenuText
         { "Add a new employee", Options.AddEmployee },
     };
     
+    // Employee Role Options
+    public static readonly Dictionary<string, Options> EmployeeRoleText = new()
+    {
+        { "Principal", Options.Principal },
+        { "Teacher", Options.Teacher },
+        { "Administrator", Options.Administrator },
+        { "Janitor", Options.Janitor },
+        { "Security", Options.Security },
+    };
+    
     // Student Menu Options.
     public static readonly Dictionary<string, Options> StudentMenuText = new()
     {
