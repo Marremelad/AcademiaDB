@@ -11,17 +11,20 @@ public class MainMenu
 {
     private EmployeeMenu _employeeMenu; // Private instance of EmployeeMenu. Will be resolved by DI container.
     private StudentMenu _studentMenu;
+    private ClassMenu _classMenu;
     private ViewRepository _viewRepository; // Private instance of ViewRepository. Will be resolved by DI container.
 
     public MainMenu(
         EmployeeMenu employeeMenu,
         StudentMenu studentMenu,
+        ClassMenu classMenu,
         ViewRepository viewRepository 
     )
     {
         _employeeMenu = employeeMenu;
         _studentMenu = studentMenu;
         _viewRepository = viewRepository;
+        _classMenu = classMenu;
     }
 
     // Displays the main menu through the single choice prompt.
