@@ -51,7 +51,6 @@ public class MenuText
         { "Classes", Options.Classes },
         { "Courses", Options.Courses },
         { "Recently set grades", Options.RecentlySetGrades },
-        { "Exit", Options.Exit }
     };
     
     // Employee Menu Options.
@@ -64,7 +63,6 @@ public class MenuText
         { "Janitors", Options.Janitor },
         { "Security", Options.Security },
         { "Add a new employee", Options.AddEmployee },
-        {"Exit", Options.Exit}
     };
     
     // Employee Role Assignment Options
@@ -74,7 +72,6 @@ public class MenuText
         { "Administrator", Options.Administrator },
         { "Janitor", Options.Janitor },
         { "Security", Options.Security },
-        {"Exit", Options.Exit}
     };
 
     // Student Menu Options.
@@ -83,7 +80,6 @@ public class MenuText
         { "All students", Options.AllStudents },
         { "Order students", Options.OrderedStudents },
         { "Add a new student", Options.AddStudent },
-        {"Exit", Options.Exit}
     };
     
     // Order Students By Menu Options.
@@ -103,13 +99,11 @@ public class MenuText
         { "Class C3", Options.C3 },
         {"Class D4", Options.D4},
         {"Class E5", Options.E5},
-        {"Exit", Options.Exit},
     };
     
     // Update Grade Options.
     public static readonly Dictionary<string, Options> UpdateGradeText = new()
     {
         { "Update Grade", Options.UpdateGrade },
-        { "Exit", Options.Exit }
     };
 }
