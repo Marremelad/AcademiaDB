@@ -117,7 +117,7 @@ public static class UserInput
     {
         Console.Clear();
         var selection = Prompt.DisplaySingleChoicePrompt(title,
-            MenuText.EmployeeRoleMenuText);
+            MenuText.EmployeeRoleText);
 
         // Assigns the correct department depending on the chosen role.
         return (MenuText.Options)selection switch
