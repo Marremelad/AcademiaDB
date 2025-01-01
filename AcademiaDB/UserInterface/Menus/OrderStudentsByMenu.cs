@@ -36,9 +36,10 @@ public class OrderStudentsByMenu
                 var (studentInformation, studentId) = _studentRepository.GetOrderedStudentInformation(sortBy, orderBy);
                 Console.WriteLine(studentInformation);
                 
-                var (enrolmentInformation, enrolmentId) = _courseEnrolmentRepository.GetStudentCourseEnrolments(studentId);
+                var (enrolmentInformation, enrolmentId, courseFound) = _courseEnrolmentRepository.GetStudentCourseEnrolments(studentId);
                 Console.WriteLine(enrolmentInformation);
-                _courseEnrolmentRepository.UpdateGradeOptions(enrolmentId);
+                
+                if (courseFound) _courseEnrolmentRepository.UpdateGradeOptions(enrolmentId);
                 break;
             }
             Console.WriteLine("Invalid combination selected.");

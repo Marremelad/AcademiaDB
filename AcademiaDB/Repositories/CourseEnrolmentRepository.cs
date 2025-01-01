@@ -18,18 +18,21 @@ public class CourseEnrolmentRepository
     
     // Displays a list of all courses that a student has been enrolled into.
     // User can then select one of the courses to see the enrolment information.
-    public (string, int) GetStudentCourseEnrolments(int studentId)
+    // If the student has not yet been enrolled into any courses the method returns a string.
+    public (string, int, bool) GetStudentCourseEnrolments(int studentId)
     {
         var courseEnrolments = _context.CourseEnrolments
             .Where(ce => ce.StudentIdFk == studentId)
             .ToList();
 
+        if (courseEnrolments.Count < 1) return ("Student is not enrolled in any courses yet", 0, false);
+        
         var selection = Prompt.DisplaySingleChoicePrompt("Select a course to see the enrolment information",
             courseEnrolments);
 
         var courseEnrolmentObject = (CourseEnrolment)selection;
 
-        return (GetInformationString(courseEnrolmentObject), courseEnrolmentObject.EnrolmentId);
+        return (GetInformationString(courseEnrolmentObject), courseEnrolmentObject.EnrolmentId, true);
     }
     
     // Returns a string with the chosen course enrolment information.

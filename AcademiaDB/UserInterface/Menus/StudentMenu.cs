@@ -34,9 +34,10 @@ public class StudentMenu
                 var (studentInformation, studentId) = _studentRepository.GetStudentInformation();
                 Console.WriteLine(studentInformation);
                 
-                var (enrolmentInformation, enrolmentId) = _courseEnrolmentRepository.GetStudentCourseEnrolments(studentId);
+                var (enrolmentInformation, enrolmentId, courseFound) = _courseEnrolmentRepository.GetStudentCourseEnrolments(studentId);
                 Console.WriteLine(enrolmentInformation);
-                _courseEnrolmentRepository.UpdateGradeOptions(enrolmentId);
+                
+                if (courseFound) _courseEnrolmentRepository.UpdateGradeOptions(enrolmentId);
                 break;
             
             case MenuText.Options.OrderedStudents:
