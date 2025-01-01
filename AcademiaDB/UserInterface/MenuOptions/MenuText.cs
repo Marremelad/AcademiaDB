@@ -97,8 +97,8 @@ public class MenuText
         { "Class A1", Options.A1 },
         { "Class B2", Options.B2 },
         { "Class C3", Options.C3 },
-        {"Class D4", Options.D4},
-        {"Class E5", Options.E5},
+        { "Class D4", Options.D4 },
+        { "Class E5", Options.E5 },
     };
     
     // Update Grade Options.
