@@ -33,9 +33,11 @@ public class MenuText
         OrderByAscending, // 19
         
         // Class Menu.
-        SoftwareEngineering,
-        DataScience,
-        AiAndMachineLearning,
+        A1,
+        B2,
+        C3,
+        D4,
+        E5,
         
         // Update Grade.
         UpdateGrade
@@ -96,10 +98,12 @@ public class MenuText
     // Class Menu Options.
     public static readonly Dictionary<string, Options> ClassMenuText = new()
     {
-        { "SoftwareEngineering2024", Options.SoftwareEngineering },
-        { "DataScience2024", Options.DataScience },
-        { "AIAndMachineLearning2024", Options.AiAndMachineLearning },
-        {"Exit", Options.Exit}
+        { "Class A1", Options.A1 },
+        { "Class B2", Options.B2 },
+        { "Class C3", Options.C3 },
+        {"Class D4", Options.D4},
+        {"Class E5", Options.E5},
+        {"Exit", Options.Exit},
     };
     
     // Update Grade Options.
