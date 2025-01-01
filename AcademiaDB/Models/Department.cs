@@ -12,4 +12,9 @@ public partial class Department
     public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
     public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+
+    public override string ToString()
+    {
+        return $"{DepartmentName}";
+    }
 }
