@@ -32,24 +32,31 @@ public class EmployeeRepository
             .Where(e => e.RoleIdFkNavigation.RoleName == "Principal")
             .ToList();
         
-        if (principal.Count > 1)
+        if (principal.Count == 1)
         {
-            Console.Clear();
-            Console.WriteLine("WARNING: There seems to be more than one principal registered at your school.");
-            Thread.Sleep(5000);
+            throw new InvalidOperationException("WARNING: There seems to be more than one principal registered at your school. " +
+                                                "Check the database and make sure that only one employee is registered with the role 'Principal'.");
         }
         
         return principal;
+    }
 
+    public List<Employee> GetTeachers()
+    {
+        var teachers = _context.Employees
+            .Where(e => e.RoleIdFkNavigation.RoleName == "Teacher")
+            .ToList();
+        
+        return teachers;
     }
     
     // Displays a prompt with all employees in the database.
     // The selected employee object is then used to filter the query and get the employee's information.
-    public string GetEmployeeInformation()
+    public string GetEmployeeInformation(List<Employee> listOfEmployees)
     {
         var selection = Prompt.DisplaySingleChoicePrompt(
             "Select an employee to see their information.",
-            GetEmployees());
+            listOfEmployees);
 
         var employeeObject = (Employee)selection;
 
