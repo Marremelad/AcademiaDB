@@ -32,7 +32,7 @@ public class EmployeeRepository
             .Where(e => e.RoleIdFkNavigation.RoleName == "Principal")
             .ToList();
         
-        if (principal.Count == 1)
+        if (principal.Count > 1)
         {
             throw new InvalidOperationException("WARNING: There seems to be more than one principal registered at your school. " +
                                                 "Check the database and make sure that only one employee is registered with the role 'Principal'.");
