@@ -4,10 +4,17 @@ public class MenuText
 {
     public enum Options
     {
+        // Order Students By Menu.
+        SortByFirstName, // 0
+        SortByLastName, // 1
+        OrderByDescending, // 2
+        OrderByAscending, // 3
+        
         // Main Menu.
         Employees,
         Students,
         Classes,
+        Departments,
         Courses,
         RecentlySetGrades,
         Exit,
@@ -26,11 +33,8 @@ public class MenuText
         OrderedStudents,
         AddStudent,
         
-        // Order Students By Menu
-        SortByFirstName, // 16
-        SortByLastName, // 17
-        OrderByDescending, // 18
-        OrderByAscending, // 19
+        // Department Menu.
+        AllDepartments,
         
         // Class Menu.
         A1,
@@ -65,15 +69,6 @@ public class MenuText
         { "Add a new employee", Options.AddEmployee },
     };
     
-    // Employee Role Assignment Options
-    public static readonly Dictionary<string, Options> EmployeeRoleMenuText = new()
-    {
-        { "Teacher", Options.Teacher },
-        { "Administrator", Options.Administrator },
-        { "Janitor", Options.Janitor },
-        { "Security", Options.Security },
-    };
-
     // Student Menu Options.
     public static readonly Dictionary<string, Options> StudentMenuText = new()
     {
@@ -90,7 +85,7 @@ public class MenuText
         { "Order by Descending", Options.OrderByDescending },
         { "Order by Ascending", Options.OrderByAscending }
     };
-
+    
     // Class Menu Options.
     public static readonly Dictionary<string, Options> ClassMenuText = new()
     {
@@ -99,6 +94,12 @@ public class MenuText
         { "Class C3", Options.C3 },
         { "Class D4", Options.D4 },
         { "Class E5", Options.E5 },
+    };
+    
+    // Department Menu Option.
+    public static readonly Dictionary<string, Options> DepartmentMenuText = new()
+    {
+        { "All departments", Options.AllDepartments }
     };
     
     // Update Grade Options.
