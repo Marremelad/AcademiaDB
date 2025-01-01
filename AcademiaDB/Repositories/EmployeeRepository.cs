@@ -83,11 +83,11 @@ public class EmployeeRepository
     
     // Displays a prompt with all employees in the database.
     // The selected employee object is then used to filter the query and get the employee's information.
-    public string GetEmployeeInformation(List<Employee> listOfEmployees)
+    public string GetEmployeeInformation(List<Employee> employees)
     {
         var selection = Prompt.DisplaySingleChoicePrompt(
             "Select an employee to see their information.",
-            listOfEmployees);
+            employees);
 
         var employeeObject = (Employee)selection;
 
