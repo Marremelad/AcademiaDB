@@ -69,34 +69,6 @@ public class StudentRepository
                $"Class: {student.ClassIdFkNavigation.ClassName}\n";
     }
     
-    // Returns a string of students filtered by class name.
-    public string DisplayStudentsFilteredByClass<TKey>(
-        Expression<Func<Student, TKey>> orderByExpression,
-        bool descending,
-        string className)
-    {
-        var query = _context.Students
-            .Where(s => s.ClassIdFkNavigation.ClassName == className);
-
-        query = descending
-            ? query.OrderByDescending(orderByExpression)
-            : query.OrderBy(orderByExpression);
-
-        var selection = query.Select(s => new
-        {
-            FirstName = s.StudentFirstName,
-            LastName = s.StudentLastName
-        });
-
-        var result = string.Join("\n", new[]
-        {
-            $"{className}",
-            string.Join("\n", selection.Select(s => $"{s.FirstName} {s.LastName}"))
-        });
-
-        return string.IsNullOrEmpty(result) ? "No students found." : result;
-    }
-    
     // Adds a student to the database.
     public void AddStudentToDatabase(string firstName, string lastName, string studentSsn, int classId)
     {
