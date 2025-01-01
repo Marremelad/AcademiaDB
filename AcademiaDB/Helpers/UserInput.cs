@@ -39,7 +39,6 @@ public static class UserInput
             Thread.Sleep(2000);
         }
     }
-
     
     // Get SSN from user input.
     public static string GetSsn(string title)
