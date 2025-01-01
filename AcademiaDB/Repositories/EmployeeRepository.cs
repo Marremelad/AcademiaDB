@@ -51,6 +51,17 @@ public class EmployeeRepository
         return teachers;
     }
     
+    // Returns a list of employee objects with the role 'Administrator'.
+    public List<Employee> GetAdministrators()
+    {
+        var administrator = _context.Employees
+            .Where(e => e.RoleIdFkNavigation.RoleName == "Administrator")
+            .ToList();
+
+        return administrator;
+    }
+    
+    
     // Displays a prompt with all employees in the database.
     // The selected employee object is then used to filter the query and get the employee's information.
     public string GetEmployeeInformation(List<Employee> listOfEmployees)
