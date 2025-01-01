@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using AcademiaDB.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace AcademiaDB.Models;
 
@@ -33,6 +35,13 @@ public partial class Employee
     
     public override string ToString()
     {
-        return $"{EmployeeFirstName} {EmployeeLastName}";
+        using (var context = new AcademiaContext())
+        {
+            var employee = context.Employees
+                .Include(i => i.RoleIdFkNavigation)
+                .SingleOrDefault(e => e.EmployeeId == EmployeeId);
+            
+            return $"{EmployeeFirstName} {EmployeeLastName}: {employee?.RoleIdFkNavigation.RoleName}";
+        }
     }
 }
