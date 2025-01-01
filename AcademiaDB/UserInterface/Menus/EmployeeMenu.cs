@@ -2,7 +2,8 @@
 using AcademiaDB.Models;
 using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.MenuOptions;
-using AcademiaDB.UserInterface.SelectionPrompts;
+using Microsoft.Identity.Client;
+using Prompt = AcademiaDB.UserInterface.SelectionPrompts.Prompt;
 
 namespace AcademiaDB.UserInterface.Menus;
 
@@ -24,13 +25,34 @@ public class EmployeeMenu
     public void DisplayEmployeeMenu()
     {
         var selection = Prompt.DisplaySingleChoicePrompt("Employee Menu", MenuText.EmployeeMenuText);
-
+        
+        var listOfEmployees = new List<Employee>();
         switch (selection)
         {
             case MenuText.Options.AllEmployees:
-                Console.WriteLine(_employeeRepository.GetEmployeeInformation());
+                listOfEmployees = _employeeRepository.GetEmployees();
                 break;
             
+            case MenuText.Options.Principal:
+                listOfEmployees = _employeeRepository.GetPrincipal();
+                break;
+            
+            case MenuText.Options.Teacher:
+                listOfEmployees = _employeeRepository.GetTeachers();
+                break;
+            
+            case MenuText.Options.Administrator:
+                listOfEmployees = _employeeRepository.GetAdministrators();
+                break;
+            
+            case MenuText.Options.Janitor:
+                listOfEmployees = _employeeRepository.GetJanitors();
+                break;
+            
+            case MenuText.Options.Security:
+                listOfEmployees = _employeeRepository.GetSecurity();
+                break;
+                
             case MenuText.Options.AddEmployee:
                 _create.CreateNewEmployee();
                 break;
@@ -38,5 +60,7 @@ public class EmployeeMenu
             case MenuText.Options.Exit:
                 return;
         }
+
+        Console.WriteLine(_employeeRepository.GetEmployeeInformation(listOfEmployees));
     }
 }
