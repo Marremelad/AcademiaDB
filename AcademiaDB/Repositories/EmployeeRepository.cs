@@ -41,6 +41,7 @@ public class EmployeeRepository
         return principal;
     }
 
+    // Returns a list of employee objects with the role 'Teacher'.
     public List<Employee> GetTeachers()
     {
         var teachers = _context.Employees
