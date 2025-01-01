@@ -45,6 +45,10 @@ public class MainMenu
                     _studentMenu.DisplayStudentMenu();
                     break;
                 
+                case MenuText.Options.Classes:
+                    _classMenu.DisplayClassMenu();
+                    break;
+                
                 case MenuText.Options.Exit:
                     return;
             }
