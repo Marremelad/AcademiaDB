@@ -10,15 +10,18 @@ public class StudentMenu
     private StudentRepository _studentRepository;
     private OrderStudentsByMenu _orderStudentsByMenu;
     private CourseEnrolmentRepository _courseEnrolmentRepository;
+    private Create _create;
 
     public StudentMenu(
         StudentRepository studentRepository,
         OrderStudentsByMenu orderStudentsByMenu,
-        CourseEnrolmentRepository courseEnrolmentRepository)
+        CourseEnrolmentRepository courseEnrolmentRepository,
+        Create create)
     {
         _studentRepository = studentRepository;
         _orderStudentsByMenu = orderStudentsByMenu;
         _courseEnrolmentRepository = courseEnrolmentRepository;
+        _create = create;
     }
 
     public void DisplayStudentMenu()
@@ -38,6 +41,10 @@ public class StudentMenu
             
             case MenuText.Options.OrderedStudents:
                 _orderStudentsByMenu.DisplayOrderStudentsByMenu();
+                break;
+            
+            case MenuText.Options.AddStudent:
+                _create.CreateNewStudent();
                 break;
             
             case MenuText.Options.Exit:
