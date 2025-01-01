@@ -8,71 +8,83 @@ public class Prompt
 {
     
     // Displays a single choice prompt. Overloaded to handle multiple data structures.
-    public static object DisplaySingleChoicePrompt<T>(string title, T choices)
+    public static object DisplaySingleChoicePrompt<T>(string title, T options)
     {
         var moreChoicesText = "Move up and down to reveal more options";
         
         // Handles a dictionary of type string and Menutext.Options.
-        if (choices is Dictionary<string, MenuText.Options> stringDict)
+        if (options is Dictionary<string, MenuText.Options> stringDict)
         {
-            var choice = AnsiConsole.Prompt(
+            var selection = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title(title)
                     .PageSize(10)
                     .MoreChoicesText(moreChoicesText)
                     .AddChoices(stringDict.Keys));
 
-            return stringDict[choice];
+            return stringDict[selection];
         }
 
         // Handles a list of type string.
-        if (choices is List<string> stringList)
+        if (options is List<string> stringList)
         {
-            var choice = AnsiConsole.Prompt(
+            var selection = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
                     .Title(title)
                     .PageSize(10)
                     .MoreChoicesText(moreChoicesText)
                     .AddChoices(stringList));
             
-            return choice;
+            return selection;
         }
         
         // Handles a list of type Employee.
-        if (choices is List<Employee> employeeList)
+        if (options is List<Employee> employeeList)
         {
-            var choice = AnsiConsole.Prompt(
+            var selection = AnsiConsole.Prompt(
                 new SelectionPrompt<Employee>()
                     .Title(title)
                     .PageSize(10)
                     .MoreChoicesText(moreChoicesText)
                     .AddChoices(employeeList));
             
-            return choice;
+            return selection;
         }
         
-        if (choices is List<Student> studentList)
+        if (options is List<Student> studentList)
         {
-            var choice = AnsiConsole.Prompt(
+            var selection = AnsiConsole.Prompt(
                 new SelectionPrompt<Student>()
                     .Title(title)
                     .PageSize(10)
                     .MoreChoicesText(moreChoicesText)
                     .AddChoices(studentList));
             
-            return choice;
+            return selection;
         }
         
-        if (choices is List<CourseEnrolment> courseEnrolmentList)
+        if (options is List<CourseEnrolment> courseEnrolmentList)
         {
-            var choice = AnsiConsole.Prompt(
+            var selection = AnsiConsole.Prompt(
                 new SelectionPrompt<CourseEnrolment>()
                     .Title(title)
                     .PageSize(10)
                     .MoreChoicesText(moreChoicesText)
                     .AddChoices(courseEnrolmentList));
             
-            return choice;
+            return selection;
+        }
+        
+        if (options is List<Class> classList)
+        {
+            var selection = AnsiConsole.Prompt(
+                new SelectionPrompt<Class>()
+                    .Title(title)
+                    .PageSize(10)
+                    .MoreChoicesText(moreChoicesText)
+                    .AddChoices(classList));
+            
+            return selection;
         }
         
         throw new ArgumentException("Invalid choice type provided.");
@@ -81,9 +93,9 @@ public class Prompt
 
     // Displays a multi choice prompt.
     public static List<string> DisplayMultiChoicePrompt(string title,
-        Dictionary<string, MenuOptions.MenuText.Options> choices)
+        Dictionary<string, MenuOptions.MenuText.Options> options)
     {
-        var multipleChoices = AnsiConsole.Prompt(
+        var multipleSelections = AnsiConsole.Prompt(
             new MultiSelectionPrompt<string>()
                 .Title(title)
                 .PageSize(10)
@@ -91,8 +103,8 @@ public class Prompt
                 .InstructionsText(
                     "[grey](Press [blue]<space>[/] to toggle an option, " + 
                     "[green]<enter>[/] to accept)[/]")
-                .AddChoices(choices.Select(s => s.Key)));
+                .AddChoices(options.Select(s => s.Key)));
 
-        return multipleChoices;
+        return multipleSelections;
     }
 }
