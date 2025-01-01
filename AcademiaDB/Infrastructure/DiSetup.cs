@@ -18,6 +18,8 @@ public static class DiSetup
             .AddScoped<EmployeeRepository>()
             .AddScoped<StudentMenu>()
             .AddScoped<StudentRepository>()
+            .AddScoped<ClassMenu>()
+            .AddScoped<ClassRepository>()
             .AddScoped<OrderStudentsByMenu>()
             .AddScoped<CourseEnrolmentRepository>()
             .AddScoped<ViewRepository>()
