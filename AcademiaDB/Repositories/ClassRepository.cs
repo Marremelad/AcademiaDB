@@ -46,6 +46,17 @@ public class ClassRepository
         return $"Class Information\n\n" +
                $"Name: {thisClass?.ClassName}\n" +
                $"Administrator: {thisClass?.EmployeeIdFkNavigation.EmployeeFirstName} " +
-               $"{thisClass?.EmployeeIdFkNavigation.EmployeeLastName}";
+               $"{thisClass?.EmployeeIdFkNavigation.EmployeeLastName}\n" +
+               $"Number of registered students: {NumberOfStudentsInAClass(classObject)}";
+    }
+
+    // Returns the number of registered students in a class.
+    public int NumberOfStudentsInAClass(Class classObject)
+    {
+        var numberOfStudent = _context.Students
+            .Where(s => s.ClassIdFk == classObject.ClassId)
+            .ToList();
+
+        return numberOfStudent.Count;
     }
 }
