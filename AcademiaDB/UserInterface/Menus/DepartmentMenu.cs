@@ -21,7 +21,8 @@ public class DepartmentMenu
         switch (selection)
         {
             case MenuText.Options.AllDepartments:
-                _departmentRepository.GetDepartmentInformation(_departmentRepository.GetDepartments());
+                Console.WriteLine(_departmentRepository.GetDepartmentInformation
+                    (_departmentRepository.GetDepartments()));
                 break;
         }
     }

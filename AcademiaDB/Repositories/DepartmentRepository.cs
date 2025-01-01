@@ -34,7 +34,7 @@ public class DepartmentRepository
     public string GetInformationString(Department departmentObject)
     {
         return $"Department Information\n\n" +
-               $"Department ID {departmentObject.DepartmentId}" +
+               $"Department ID: {departmentObject.DepartmentId}\n" +
                $"Name: {departmentObject.DepartmentName}";
     }
 }
