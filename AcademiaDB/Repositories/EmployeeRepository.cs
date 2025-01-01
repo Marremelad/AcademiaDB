@@ -24,6 +24,24 @@ public class EmployeeRepository
 
         return employees;
     }
+
+    // Returns a list of Employee objects with the role 'Principal'. Should only be one at a time.
+    public List<Employee> GetPrincipal()
+    {
+        var principal = _context.Employees
+            .Where(e => e.RoleIdFkNavigation.RoleName == "Principal")
+            .ToList();
+        
+        if (principal.Count > 1)
+        {
+            Console.Clear();
+            Console.WriteLine("WARNING: There seems to be more than one principal registered at your school.");
+            Thread.Sleep(5000);
+        }
+        
+        return principal;
+
+    }
     
     // Displays a prompt with all employees in the database.
     // The selected employee object is then used to filter the query and get the employee's information.
@@ -35,6 +53,12 @@ public class EmployeeRepository
 
         var employeeObject = (Employee)selection;
 
+        return GetInformationString(employeeObject);
+    }
+    
+    // Returns a string with the chosen employee's information.
+    private string GetInformationString(Employee employeeObject)
+    {
         var employee = _context.Employees
             .Include(e => e.DepartmentIdFkNavigation)
             .Include(e => e.RoleIdFkNavigation)
