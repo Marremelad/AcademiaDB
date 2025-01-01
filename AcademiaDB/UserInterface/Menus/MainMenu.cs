@@ -12,19 +12,22 @@ public class MainMenu
     private EmployeeMenu _employeeMenu; // Private instance of EmployeeMenu. Will be resolved by DI container.
     private StudentMenu _studentMenu;
     private ClassMenu _classMenu;
+    private DepartmentMenu _departmentMenu;
     private ViewRepository _viewRepository; // Private instance of ViewRepository. Will be resolved by DI container.
 
     public MainMenu(
         EmployeeMenu employeeMenu,
         StudentMenu studentMenu,
         ClassMenu classMenu,
-        ViewRepository viewRepository 
+        ViewRepository viewRepository,
+        DepartmentMenu departmentMenu
     )
     {
         _employeeMenu = employeeMenu;
         _studentMenu = studentMenu;
-        _viewRepository = viewRepository;
         _classMenu = classMenu;
+        _departmentMenu = departmentMenu; 
+        _viewRepository = viewRepository;
     }
 
     // Displays the main menu through the single choice prompt.
@@ -47,6 +50,10 @@ public class MainMenu
                 
                 case MenuText.Options.Classes:
                     _classMenu.DisplayClassMenu();
+                    break;
+                
+                case MenuText.Options.Departments:
+                    _departmentMenu.DisplayDepartmentMenu();
                     break;
                 
                 case MenuText.Options.Exit:
