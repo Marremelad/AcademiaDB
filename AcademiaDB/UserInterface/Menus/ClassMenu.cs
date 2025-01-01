@@ -17,6 +17,6 @@ public class ClassMenu
 
     public void DisplayClassMenu()
     {
-        UserInput.GetClassId("Select a class to see its students");
+        Console.WriteLine(_classRepository.GetClassInformation());
     }
 }
