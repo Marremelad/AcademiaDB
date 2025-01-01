@@ -39,8 +39,8 @@ public class ClassRepository
             .Include(c => c.EmployeeIdFkNavigation)
             .SingleOrDefault(c => c.ClassId == classObject.ClassId);
 
-        return $"Class Information" +
-               $"Name: {thisClass?.ClassName}" +
+        return $"Class Information\n\n" +
+               $"Name: {thisClass?.ClassName}\n" +
                $"Administrator: {thisClass?.EmployeeIdFkNavigation.EmployeeFirstName} " +
                $"{thisClass?.EmployeeIdFkNavigation.EmployeeLastName}";
     }
