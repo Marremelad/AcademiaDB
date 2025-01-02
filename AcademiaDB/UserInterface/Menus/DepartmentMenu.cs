@@ -1,4 +1,5 @@
-﻿using AcademiaDB.Repositories;
+﻿using AcademiaDB.Models;
+using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
 
@@ -18,12 +19,14 @@ public class DepartmentMenu
         var selection = Prompt.DisplaySingleChoicePrompt("Select an option",
             MenuText.DepartmentMenuText);
 
+        var listOfDepartments = new List<Department>();
         switch (selection)
         {
             case MenuText.Options.AllDepartments:
-                Console.WriteLine(_departmentRepository.GetDepartmentInformation
-                    (_departmentRepository.GetDepartments()));
+                listOfDepartments = _departmentRepository.GetDepartments();
                 break;
         }
+
+        Console.WriteLine(_departmentRepository.GetDepartmentInformation(listOfDepartments));
     }
 }
