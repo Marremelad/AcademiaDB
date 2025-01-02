@@ -35,6 +35,36 @@ public class DepartmentRepository
     {
         return $"Department Information\n\n" +
                $"Department ID: {departmentObject.DepartmentId}\n" +
-               $"Name: {departmentObject.DepartmentName}";
+               $"Name: {departmentObject.DepartmentName}\n" +
+               $"Number of registered employees: {NumberOfEmployeesInDepartment(departmentObject)}\n" +
+               $"Total salary payout per month: {DepartmentSalaryPayoutPerMonth(departmentObject):C}\n" +
+               $"Average salary: {DepartmentAverageSalary(departmentObject):C}";
+    }
+
+    public int NumberOfEmployeesInDepartment(Department departmentObject)
+    {
+        var numberOfEmployees = _context.Employees
+            .Where(e => e.DepartmentIdFk == departmentObject.DepartmentId)
+            .ToList();
+
+        return numberOfEmployees.Count;
+    }
+
+    public decimal DepartmentSalaryPayoutPerMonth(Department departmentObject)
+    {
+        var totalSalary = _context.Employees
+            .Where(e => e.DepartmentIdFk == departmentObject.DepartmentId)
+            .Sum(e => e.EmployeeSalary);
+
+        return totalSalary;
+    }
+
+    public decimal DepartmentAverageSalary(Department departmentObject)
+    {
+        var medianSalary = _context.Employees
+            .Where(e => e.DepartmentIdFk == departmentObject.DepartmentId)
+            .Average(e => e.EmployeeSalary);
+
+        return medianSalary;
     }
 }
