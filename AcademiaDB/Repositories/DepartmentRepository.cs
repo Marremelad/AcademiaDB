@@ -13,6 +13,7 @@ public class DepartmentRepository
         _context = context;
     }
 
+    // Returns a list of department objects.
     public List<Department> GetDepartments()
     {
         var departments = _context.Departments
@@ -21,6 +22,8 @@ public class DepartmentRepository
         return departments;
     }
 
+    // Displays a prompt with all departments in the database.
+    // The selected department object is then used to filter the query and get the department's information.
     public string GetDepartmentInformation(List<Department> departments)
     {
         var selection = Prompt.DisplaySingleChoicePrompt("Select a department to se its information",
@@ -31,6 +34,7 @@ public class DepartmentRepository
         return GetInformationString(departmentObject);
     }
 
+    // Returns a string with the selected departments information.
     public string GetInformationString(Department departmentObject)
     {
         return $"Department Information\n\n" +
@@ -41,6 +45,7 @@ public class DepartmentRepository
                $"Average salary: {DepartmentAverageSalary(departmentObject):C}";
     }
 
+    // Returns the number of registered employees in a department.
     public int NumberOfEmployeesInDepartment(Department departmentObject)
     {
         var numberOfEmployees = _context.Employees
@@ -50,6 +55,7 @@ public class DepartmentRepository
         return numberOfEmployees.Count;
     }
 
+    // Returns the total salary payout per month in a department.
     public decimal DepartmentSalaryPayoutPerMonth(Department departmentObject)
     {
         var totalSalary = _context.Employees
@@ -59,6 +65,7 @@ public class DepartmentRepository
         return totalSalary;
     }
 
+    // Returns the average salary per month in a department.
     public decimal DepartmentAverageSalary(Department departmentObject)
     {
         var medianSalary = _context.Employees
