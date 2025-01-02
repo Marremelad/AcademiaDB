@@ -10,27 +10,27 @@ namespace AcademiaDB.UserInterface.Menus;
 public class MainMenu
 {
     private EmployeeMenu _employeeMenu; // Private instance of EmployeeMenu. Will be resolved by DI container.
+    private DepartmentMenu _departmentMenu;
     private StudentMenu _studentMenu;
     private ClassMenu _classMenu;
-    private DepartmentMenu _departmentMenu;
     private CourseMenu _courseMenu;
     private ViewRepository _viewRepository; // Private instance of ViewRepository. Will be resolved by DI container.
 
     public MainMenu(
         EmployeeMenu employeeMenu,
+        DepartmentMenu departmentMenu,
         StudentMenu studentMenu,
         ClassMenu classMenu,
-        ViewRepository viewRepository,
-        DepartmentMenu departmentMenu,
-        CourseMenu courseMenu
+        CourseMenu courseMenu,
+        ViewRepository viewRepository
     )
     {
         _employeeMenu = employeeMenu;
+        _departmentMenu = departmentMenu; 
         _studentMenu = studentMenu;
         _classMenu = classMenu;
-        _departmentMenu = departmentMenu; 
-        _viewRepository = viewRepository;
         _courseMenu = courseMenu;
+        _viewRepository = viewRepository;
     }
 
     // Displays the main menu through the single choice prompt.
@@ -47,6 +47,10 @@ public class MainMenu
                     _employeeMenu.DisplayEmployeeMenu();
                     break;
                 
+                case MenuText.Options.Departments:
+                    _departmentMenu.DisplayDepartmentMenu();
+                    break;
+                
                 case MenuText.Options.Students:
                     _studentMenu.DisplayStudentMenu();
                     break;
@@ -54,9 +58,9 @@ public class MainMenu
                 case MenuText.Options.Classes:
                     _classMenu.DisplayClassMenu();
                     break;
-                
-                case MenuText.Options.Departments:
-                    _departmentMenu.DisplayDepartmentMenu();
+
+                case MenuText.Options.Courses:
+                    _courseMenu.DisplayCourseMenu();
                     break;
                 
                 case MenuText.Options.Exit:

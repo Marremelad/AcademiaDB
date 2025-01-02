@@ -28,13 +28,13 @@ public class MenuText
         Security,
         AddEmployee,
         
+        // Department Menu.
+        AllDepartments,
+        
         // Student Menu.
         AllStudents,
         OrderedStudents,
         AddStudent,
-        
-        // Department Menu.
-        AllDepartments,
         
         // Class Menu.
         A1,
@@ -42,6 +42,10 @@ public class MenuText
         C3,
         D4,
         E5,
+        
+        // Course Menu.
+        AllCourses,
+        ActiveCourses,
         
         // Update Grade.
         UpdateGrade
@@ -111,6 +115,13 @@ public class MenuText
     public static readonly Dictionary<string, Options> DepartmentMenuText = new()
     {
         { "All departments", Options.AllDepartments }
+    };
+
+    // Course Menu Options.
+    public static readonly Dictionary<string, Options> CourseMenuText = new()
+    {
+        { "All courses", Options.AllCourses },
+        { "Active courses", Options.ActiveCourses }
     };
     
     // Update Grade Options.
