@@ -39,7 +39,7 @@ public partial class Employee
         using (var context = new AcademiaContext())
         {
             var employee = context.Employees
-                .Include(i => i.RoleIdFkNavigation)
+                .Include(e => e.RoleIdFkNavigation)
                 .SingleOrDefault(e => e.EmployeeId == EmployeeId);
             
             return $"{EmployeeFirstName} {EmployeeLastName}: {employee?.RoleIdFkNavigation.RoleName}";

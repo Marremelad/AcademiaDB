@@ -7,7 +7,7 @@ namespace AcademiaDB.Helpers;
 public static class PromptHelper
 {
     // Check if the chosen combination of options is valid.
-    public static bool IsValidCombination(List<MenuText.Options> choice)
+    public static bool IsValidCombination(List<MenuText.Options> selection)
     {
         
         // List containing lists of valid combinations.
@@ -20,26 +20,26 @@ public static class PromptHelper
         ];
         
         return validCombinations.Any(vc =>
-            vc.SequenceEqual(choice)); 
+            vc.SequenceEqual(selection)); 
     }
     
     // Applies the combination of options and calls the method to retrieve student information.
-    public static Tuple<Expression<Func<Student, string>>, bool> ApplyOptions(List<MenuText.Options> choice)
+    public static Tuple<Expression<Func<Student, string>>, bool> ApplyOptions(List<MenuText.Options> selection)
     {
         Expression<Func<Student, string>> sortBy;
         bool orderBy;
         
-        if ((int)choice[0] == 0 && (int)choice[1] == 2)
+        if ((int)selection[0] == 0 && (int)selection[1] == 2)
         {
             sortBy = s => s.StudentFirstName;
             orderBy = false; // Order by Descending.
         }
-        else if ((int)choice[0] == 1 && (int)choice[1] == 2)
+        else if ((int)selection[0] == 1 && (int)selection[1] == 2)
         {
             sortBy = s => s.StudentLastName;
             orderBy = false; // Order by Descending.
         }
-        else if((int)choice[0] == 0 && (int)choice[1] == 3)
+        else if((int)selection[0] == 0 && (int)selection[1] == 3)
         {
             sortBy = s => s.StudentFirstName;
             orderBy = true; // Order by Ascending.

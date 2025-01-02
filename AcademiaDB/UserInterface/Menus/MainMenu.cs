@@ -2,7 +2,6 @@
 using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
-using Microsoft.Extensions.Options;
 using Spectre.Console;
 
 namespace AcademiaDB.UserInterface.Menus;

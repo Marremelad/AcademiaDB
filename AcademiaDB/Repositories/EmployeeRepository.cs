@@ -2,7 +2,6 @@
 using AcademiaDB.Helpers;
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.SelectionPrompts;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace AcademiaDB.Repositories;

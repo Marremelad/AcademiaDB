@@ -84,6 +84,12 @@ public class MenuText
         { "Security", Options.Security },
     };
     
+    // Department Menu Option.
+    public static readonly Dictionary<string, Options> DepartmentMenuText = new()
+    {
+        { "All departments", Options.AllDepartments }
+    };
+    
     // Student Menu Options.
     public static readonly Dictionary<string, Options> StudentMenuText = new()
     {
@@ -111,12 +117,6 @@ public class MenuText
         { "Class E5", Options.E5 },
     };
     
-    // Department Menu Option.
-    public static readonly Dictionary<string, Options> DepartmentMenuText = new()
-    {
-        { "All departments", Options.AllDepartments }
-    };
-
     // Course Menu Options.
     public static readonly Dictionary<string, Options> CourseMenuText = new()
     {

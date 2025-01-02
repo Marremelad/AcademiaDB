@@ -31,7 +31,7 @@ public partial class CourseEnrolment
         using (var context = new AcademiaContext())
         {
             var courseEnrolment = context.CourseEnrolments
-                .Include(i => i.CourseIdFkNavigation)
+                .Include(ce => ce.CourseIdFkNavigation)
                 .SingleOrDefault(ce => ce.EnrolmentId == EnrolmentId);
 
             return $"{courseEnrolment?.CourseIdFkNavigation.CourseName}";

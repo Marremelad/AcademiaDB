@@ -27,15 +27,15 @@ public class DepartmentRepository
     public string GetDepartmentInformation(List<Department> departments)
     {
         var selection = Prompt.DisplaySingleChoicePrompt("Select a department to se its information",
-            GetDepartments());
+            departments);
 
         var departmentObject = (Department)selection;
 
         return GetInformationString(departmentObject);
     }
 
-    // Returns a string with the selected departments information.
-    public string GetInformationString(Department departmentObject)
+    // Returns a string with the selected department's information.
+    private string GetInformationString(Department departmentObject)
     {
         return $"Department Information\n\n" +
                $"Department ID: {departmentObject.DepartmentId}\n" +

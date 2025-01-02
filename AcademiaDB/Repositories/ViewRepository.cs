@@ -1,5 +1,4 @@
 ﻿using AcademiaDB.Data;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace AcademiaDB.Repositories;
 
@@ -16,7 +15,7 @@ public class ViewRepository
     public string GetTopGrades()
     {
         var topGrades = _context.TopGrades
-            .Select(s => $"{s.Name} {s.Grade}")
+            .Select(tg => $"{tg.Name} {tg.Grade}")
             .ToList();
 
         var result = string.Join("\n", topGrades);

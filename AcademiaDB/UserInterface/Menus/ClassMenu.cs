@@ -1,8 +1,4 @@
-﻿using AcademiaDB.Data;
-using AcademiaDB.Helpers;
-using AcademiaDB.Repositories;
-using AcademiaDB.UserInterface.MenuOptions;
-using AcademiaDB.UserInterface.SelectionPrompts;
+﻿using AcademiaDB.Repositories;
 
 namespace AcademiaDB.UserInterface.Menus;
 
@@ -17,6 +13,7 @@ public class ClassMenu
 
     public void DisplayClassMenu()
     {
-        Console.WriteLine(_classRepository.GetClassInformation());
+        var listOfClasses = _classRepository.GetClasses();
+        Console.WriteLine(_classRepository.GetClassInformation(listOfClasses));
     }
 }

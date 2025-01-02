@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using AcademiaDB.Data;
+﻿using AcademiaDB.Data;
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.MenuOptions;
 using Microsoft.EntityFrameworkCore;

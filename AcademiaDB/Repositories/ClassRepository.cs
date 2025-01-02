@@ -2,7 +2,6 @@
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.SelectionPrompts;
 using Microsoft.EntityFrameworkCore;
-using Spectre.Console;
 
 namespace AcademiaDB.Repositories;
 
@@ -26,9 +25,8 @@ public class ClassRepository
 
     // Displays a prompt with all classes in the database.
     // The selected class object is then used to filter the query and get the class's information.
-    public string GetClassInformation()
+    public string GetClassInformation(List<Class> classes)
     {
-        var classes = GetClasses();
         var selection = Prompt.DisplaySingleChoicePrompt("Select a class to see its information", classes);
 
         var classObject = (Class)selection;
@@ -37,7 +35,7 @@ public class ClassRepository
     }
 
     // Returns a string with the selected class's information.
-    public string GetInformationString(Class classObject)
+    private string GetInformationString(Class classObject)
     {
         var thisClass = _context.Classes
             .Include(c => c.EmployeeIdFkNavigation)
@@ -51,7 +49,7 @@ public class ClassRepository
     }
 
     // Returns the number of registered students in a class.
-    public int NumberOfStudentsInAClass(Class classObject)
+    private int NumberOfStudentsInAClass(Class classObject)
     {
         var numberOfStudent = _context.Students
             .Where(s => s.ClassIdFk == classObject.ClassId)

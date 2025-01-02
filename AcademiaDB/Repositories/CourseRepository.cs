@@ -1,7 +1,6 @@
 ﻿using AcademiaDB.Data;
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.SelectionPrompts;
-using Microsoft.EntityFrameworkCore;
 
 namespace AcademiaDB.Repositories;
 

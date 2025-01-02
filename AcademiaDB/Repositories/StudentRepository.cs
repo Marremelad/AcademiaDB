@@ -1,10 +1,8 @@
 ﻿using System.Linq.Expressions;
-using System.Transactions;
 using AcademiaDB.Data;
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.SelectionPrompts;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 
 namespace AcademiaDB.Repositories;
 

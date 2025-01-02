@@ -27,7 +27,7 @@ public partial class Student
         using (var context = new AcademiaContext())
         {
             var student = context.Students
-                .Include(i => i.ClassIdFkNavigation)
+                .Include(s => s.ClassIdFkNavigation)
                 .SingleOrDefault(s => s.StudentId == StudentId);
             
             return $"{StudentFirstName} {StudentLastName}: {student?.ClassIdFkNavigation.ClassName}";

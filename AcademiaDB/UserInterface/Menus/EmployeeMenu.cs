@@ -2,7 +2,6 @@
 using AcademiaDB.Models;
 using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.MenuOptions;
-using Microsoft.Identity.Client;
 using Prompt = AcademiaDB.UserInterface.SelectionPrompts.Prompt;
 
 namespace AcademiaDB.UserInterface.Menus;

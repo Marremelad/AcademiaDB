@@ -1,6 +1,4 @@
-﻿using System.Data;
-using System.Security.Cryptography;
-using AcademiaDB.Models;
+﻿using AcademiaDB.Models;
 using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
