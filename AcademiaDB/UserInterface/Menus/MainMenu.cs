@@ -13,6 +13,7 @@ public class MainMenu
     private StudentMenu _studentMenu;
     private ClassMenu _classMenu;
     private DepartmentMenu _departmentMenu;
+    private CourseMenu _courseMenu;
     private ViewRepository _viewRepository; // Private instance of ViewRepository. Will be resolved by DI container.
 
     public MainMenu(
@@ -20,7 +21,8 @@ public class MainMenu
         StudentMenu studentMenu,
         ClassMenu classMenu,
         ViewRepository viewRepository,
-        DepartmentMenu departmentMenu
+        DepartmentMenu departmentMenu,
+        CourseMenu courseMenu
     )
     {
         _employeeMenu = employeeMenu;
@@ -28,6 +30,7 @@ public class MainMenu
         _classMenu = classMenu;
         _departmentMenu = departmentMenu; 
         _viewRepository = viewRepository;
+        _courseMenu = courseMenu;
     }
 
     // Displays the main menu through the single choice prompt.
