@@ -16,13 +16,21 @@ public class StudentRepository
     {
         _context = context;
     }
+
+    // Returns a list of student objects.
+    public List<Student> GetStudents()
+    {
+        var students = _context.Students
+            .ToList();
+
+        return students;
+    }
     
     // Displays a single choice prompt of student objects.
     // User can select one of the student objects and see the student's information.
     public (string, int) GetStudentInformation()
     {
-        var students = _context.Students
-            .ToList();
+        var students = GetStudents();
         
         var selection = Prompt.DisplaySingleChoicePrompt(
             "Select a student to see their information.",
