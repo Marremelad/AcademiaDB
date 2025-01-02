@@ -29,17 +29,17 @@ public static class PromptHelper
         Expression<Func<Student, string>> sortBy;
         bool orderBy;
         
-        if ((int)choice[0] == 16 && (int)choice[1] == 18)
+        if ((int)choice[0] == 0 && (int)choice[1] == 2)
         {
             sortBy = s => s.StudentFirstName;
             orderBy = false; // Order by Descending.
         }
-        else if ((int)choice[0] == 17 && (int)choice[1] == 18)
+        else if ((int)choice[0] == 1 && (int)choice[1] == 2)
         {
             sortBy = s => s.StudentLastName;
             orderBy = false; // Order by Descending.
         }
-        else if((int)choice[0] == 16 && (int)choice[1] == 19)
+        else if((int)choice[0] == 0 && (int)choice[1] == 3)
         {
             sortBy = s => s.StudentFirstName;
             orderBy = true; // Order by Ascending.
