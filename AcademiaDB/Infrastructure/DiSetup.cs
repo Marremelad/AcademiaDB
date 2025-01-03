@@ -25,7 +25,6 @@ public static class DiSetup
             .AddScoped<CourseMenu>()
             .AddScoped<CourseRepository>()
             .AddScoped<CourseEnrolmentRepository>()
-            .AddScoped<OrderStudentsByMenu>()
             .AddScoped<ViewRepository>()
             .AddScoped<Create>()
             .BuildServiceProvider();

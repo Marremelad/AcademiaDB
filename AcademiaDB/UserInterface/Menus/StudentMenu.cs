@@ -10,18 +10,15 @@ namespace AcademiaDB.UserInterface.Menus;
 public class StudentMenu
 {
     private StudentRepository _studentRepository;
-    private OrderStudentsByMenu _orderStudentsByMenu;
     private CourseEnrolmentRepository _courseEnrolmentRepository;
     private Create _create;
 
     public StudentMenu(
         StudentRepository studentRepository,
-        OrderStudentsByMenu orderStudentsByMenu,
         CourseEnrolmentRepository courseEnrolmentRepository,
         Create create)
     {
         _studentRepository = studentRepository;
-        _orderStudentsByMenu = orderStudentsByMenu;
         _courseEnrolmentRepository = courseEnrolmentRepository;
         _create = create;
     }
