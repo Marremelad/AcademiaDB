@@ -16,40 +16,33 @@ public class StudentRepository
     }
 
     // Returns a list of student objects.
-    public List<Student> GetStudents()
+    public IQueryable<Student> GetStudents()
     {
-        var students = _context.Students
-            .ToList();
+        var students = _context.Students;
 
         return students;
     }
     
-    // Displays a single choice prompt of student objects.
-    // User can select one of the student objects and see the student's information.
-    public (string, int) GetStudentInformation()
+    // Returns a list of student objects from a specified class.
+    public IQueryable<Student> GetStudentsFromSpecifiedClass(int classId)
     {
-        var students = GetStudents();
-        
-        var selection = Prompt.DisplaySingleChoicePrompt(
-            "Select a student to see their information.",
-            students);
-        
-        var studentObject = (Student)selection;
+        var students = _context.Students
+            .Where(s => s.ClassIdFk == classId);
 
-        return (GetInformationString(studentObject), studentObject.StudentId);
+        return students;
     }
     
-    // Displays a single choice prompt of student objects ordered by specific input.
+    // Displays a single choice prompt of student objects based on specific input.
     // User can select one of the student objects and see the student's information.
-    public (string, int) GetOrderedStudentInformation<T>(
+    // If the user chooses to not order the students by any parameter the overload will call the method with default values.
+    public (string, int) GetStudentInformation<T>(
+        IQueryable<Student> students, 
         Expression<Func<Student, T>> orderByExpression,
-        bool descending)
+        bool ascending)
     {
-        IQueryable<Student> students = _context.Students;
-
-        students = descending
-            ? students.OrderByDescending(orderByExpression)
-            : students.OrderBy(orderByExpression);
+        students = ascending
+            ? students.OrderBy(orderByExpression)
+            : students.OrderByDescending(orderByExpression);
 
         var selection = Prompt.DisplaySingleChoicePrompt(
                 "Select a student to see their information", 
@@ -59,7 +52,13 @@ public class StudentRepository
 
         return (GetInformationString(studentObject), studentObject.StudentId);
     }
-
+    
+    // Overload of GetStudentInformation.
+    public (string, int) GetStudentInformation(IQueryable<Student> students)
+    {
+        return GetStudentInformation(students, student => student.StudentId, true);
+    }
+    
     // Returns a string with the chosen student's information.
     private string GetInformationString(Student studentObject)
     {

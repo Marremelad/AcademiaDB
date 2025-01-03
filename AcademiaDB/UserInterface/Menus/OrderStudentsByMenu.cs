@@ -25,15 +25,15 @@ public class OrderStudentsByMenu
             Console.Clear();
             
             // A list of type string that is converted into a list of type MenuChoice.
-            var choice = Prompt.DisplayMultiChoicePrompt("Select options to order by", MenuText.OrderStudentsByMenuText)
+            var selection = Prompt.DisplayMultiChoicePrompt("Select options to order by", MenuText.OrderStudentsByMenuText)
                 .Where(MenuText.OrderStudentsByMenuText.ContainsKey)
                 .Select(key => MenuText.OrderStudentsByMenuText[key])
                 .ToList();
             
-            if (PromptHelper.IsValidCombination(choice))
+            if (PromptHelper.IsValidCombination(selection))
             {
-                var (sortBy, orderBy) = PromptHelper.ApplyOptions(choice);
-                var (studentInformation, studentId) = _studentRepository.GetOrderedStudentInformation(sortBy, orderBy);
+                var (sortBy, orderBy) = PromptHelper.ApplyOptions(selection);
+                var (studentInformation, studentId) = _studentRepository.GetStudentInformation(_studentRepository.GetStudents(), sortBy, orderBy);
                 Console.WriteLine(studentInformation);
                 
                 var (enrolmentInformation, enrolmentId, courseFound) = _courseEnrolmentRepository.GetStudentCourseEnrolments(studentId);

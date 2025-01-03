@@ -32,6 +32,7 @@ public class MenuText
         
         // Student Menu.
         AllStudents,
+        StudentsByClass,
         OrderedStudents,
         AddStudent,
         
@@ -95,6 +96,7 @@ public class MenuText
     {
         { "All students", Options.AllStudents },
         { "Order students", Options.OrderedStudents },
+        { "Students by class", Options.StudentsByClass },
         { "Add a new student", Options.AddStudent },
         { "Exit", Options.Exit }
     };
