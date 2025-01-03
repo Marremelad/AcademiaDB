@@ -28,6 +28,9 @@ public class CourseMenu
             case MenuText.Options.ActiveCourses:
                 listOfCourses = _courseRepository.GetActiveCourses();
                 break;
+            
+            case MenuText.Options.Exit:
+                return;
         }
 
         Console.WriteLine(_courseRepository.GetCourseInformation(listOfCourses));

@@ -25,6 +25,9 @@ public class DepartmentMenu
             case MenuText.Options.AllDepartments:
                 listOfDepartments = _departmentRepository.GetDepartments();
                 break;
+            
+            case MenuText.Options.Exit:
+                return;
         }
 
         Console.WriteLine(_departmentRepository.GetDepartmentInformation(listOfDepartments));
