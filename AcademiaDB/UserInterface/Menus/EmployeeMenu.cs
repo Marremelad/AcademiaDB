@@ -54,7 +54,7 @@ public class EmployeeMenu
                 
             case MenuText.Options.AddEmployee:
                 _create.CreateNewEmployee();
-                break;
+                return;
             
             case MenuText.Options.Exit:
                 return;
