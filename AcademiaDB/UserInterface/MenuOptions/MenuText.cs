@@ -77,7 +77,6 @@ public class MenuText
     // Employee Role Options
     public static readonly Dictionary<string, Options> EmployeeRoleText = new()
     {
-        { "Principal", Options.Principal },
         { "Teacher", Options.Teacher },
         { "Administrator", Options.Administrator },
         { "Janitor", Options.Janitor },
