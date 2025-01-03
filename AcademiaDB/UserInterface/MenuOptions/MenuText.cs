@@ -16,7 +16,6 @@ public class MenuText
         Classes,
         Departments,
         Courses,
-        RecentlySetGrades,
         Exit,
         
         // Employee Menu.
@@ -58,8 +57,7 @@ public class MenuText
         { "Departments", Options.Departments },
         { "Students", Options.Students },
         { "Classes", Options.Classes },
-        { "Courses", Options.Courses },
-        { "Recently set grades", Options.RecentlySetGrades },
+        { "Courses", Options.Courses }
     };
     
     // Employee Menu Options.
@@ -71,7 +69,7 @@ public class MenuText
         { "Administrators", Options.Administrator },
         { "Janitors", Options.Janitor },
         { "Security", Options.Security },
-        { "Add a new employee", Options.AddEmployee },
+        { "Add a new employee", Options.AddEmployee }
     };
     
     // Employee Role Options
@@ -81,7 +79,7 @@ public class MenuText
         { "Teacher", Options.Teacher },
         { "Administrator", Options.Administrator },
         { "Janitor", Options.Janitor },
-        { "Security", Options.Security },
+        { "Security", Options.Security }
     };
     
     // Department Menu Option.
