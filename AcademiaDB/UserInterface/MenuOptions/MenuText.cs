@@ -57,7 +57,8 @@ public class MenuText
         { "Departments", Options.Departments },
         { "Students", Options.Students },
         { "Classes", Options.Classes },
-        { "Courses", Options.Courses }
+        { "Courses", Options.Courses },
+        { "Exit", Options.Exit }
     };
     
     // Employee Menu Options.
@@ -69,7 +70,8 @@ public class MenuText
         { "Administrators", Options.Administrator },
         { "Janitors", Options.Janitor },
         { "Security", Options.Security },
-        { "Add a new employee", Options.AddEmployee }
+        { "Add a new employee", Options.AddEmployee },
+        { "Exit", Options.Exit }
     };
     
     // Employee Role Options
@@ -79,13 +81,14 @@ public class MenuText
         { "Teacher", Options.Teacher },
         { "Administrator", Options.Administrator },
         { "Janitor", Options.Janitor },
-        { "Security", Options.Security }
+        { "Security", Options.Security },
     };
     
     // Department Menu Option.
     public static readonly Dictionary<string, Options> DepartmentMenuText = new()
     {
-        { "All departments", Options.AllDepartments }
+        { "All departments", Options.AllDepartments },
+        { "Exit", Options.Exit }
     };
     
     // Student Menu Options.
@@ -94,6 +97,7 @@ public class MenuText
         { "All students", Options.AllStudents },
         { "Order students", Options.OrderedStudents },
         { "Add a new student", Options.AddStudent },
+        { "Exit", Options.Exit }
     };
     
     // Order Students By Menu Options.
@@ -119,12 +123,14 @@ public class MenuText
     public static readonly Dictionary<string, Options> CourseMenuText = new()
     {
         { "All courses", Options.AllCourses },
-        { "Active courses", Options.ActiveCourses }
+        { "Active courses", Options.ActiveCourses },
+        { "Exit", Options.Exit }
     };
     
     // Update Grade Options.
     public static readonly Dictionary<string, Options> UpdateGradeText = new()
     {
         { "Update Grade", Options.UpdateGrade },
+        { "Exit", Options.Exit }
     };
 }
