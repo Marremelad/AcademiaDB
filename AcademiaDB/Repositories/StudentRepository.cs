@@ -31,6 +31,13 @@ public class StudentRepository
 
         return students;
     }
+
+    // Checks if the given ID is tied to a student.
+    public bool StudentExists(int studentId)
+    {
+        return _context.Students.Any(s => s.StudentId == studentId);
+    }
+
     
     // Displays a single choice prompt of student objects based on specific input.
     // User can select one of the student objects and see the student's information.
