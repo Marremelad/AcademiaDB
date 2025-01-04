@@ -12,11 +12,15 @@ namespace AcademiaDB.Helpers;
 
 public class UserInput
 {
+    private StudentRepository _studentRepository;
     private CourseRepository _courseRepository;
 
-    public UserInput(CourseRepository courseRepository)
+    public UserInput(
+        CourseRepository courseRepository,
+        StudentRepository studentRepository)
     {
         _courseRepository = courseRepository;
+        _studentRepository = studentRepository;
     }
     
     // Get first name from user input.
@@ -65,6 +69,26 @@ public class UserInput
             
             if (ssn != null && Regex.IsMatch(ssn, pattern)) return ssn;
             Console.WriteLine("Invalid SSN format. Please use yyyyMMdd-nnnn");
+            Thread.Sleep(2000);
+        }
+    }
+
+    public int GetStudentId(string title)
+    {
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine(title);
+            
+            if (!int.TryParse(Console.ReadLine(), out var studentId))
+            {
+                Console.WriteLine("Student ID has to be a number.");
+                Thread.Sleep(2000);
+                continue;
+            }
+
+            if (_studentRepository.StudentExists(studentId)) return studentId;
+            Console.WriteLine("The given ID is not tied to any student");
             Thread.Sleep(2000);
         }
     }
