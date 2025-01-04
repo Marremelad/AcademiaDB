@@ -13,6 +13,7 @@ public partial class Department
 
     public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
 
+    // Returns a string with the name of the department.
     public override string ToString()
     {
         return $"{DepartmentName}";

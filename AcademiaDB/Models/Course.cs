@@ -15,6 +15,7 @@ public partial class Course
 
     public virtual ICollection<CourseEnrolment> CourseEnrolments { get; set; } = new List<CourseEnrolment>();
 
+    // Returns a string with the name of the course.
     public override string ToString()
     {
         return $"{CourseName}";
