@@ -53,11 +53,11 @@ public class EmployeeRepository
     // Returns a list of employee objects with the role 'Administrator'.
     public List<Employee> GetAdministrators()
     {
-        var administrator = _context.Employees
+        var administrators = _context.Employees
             .Where(e => e.RoleIdFkNavigation.RoleName == "Administrator")
             .ToList();
 
-        return administrator;
+        return administrators;
     }
     
     // Returns a list of employee objects with the role 'Janitor'.
