@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿
 namespace AcademiaDB.Models;
 
 public partial class CourseAssignment

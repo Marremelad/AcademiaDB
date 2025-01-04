@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using AcademiaDB.Data;
+﻿using AcademiaDB.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace AcademiaDB.Models;
@@ -37,5 +35,4 @@ public partial class CourseEnrolment
             return $"{courseEnrolment?.CourseIdFkNavigation.CourseName}";
         }
     }
-
 }
