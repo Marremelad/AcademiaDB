@@ -1,4 +1,5 @@
-﻿using AcademiaDB.Data;
+﻿using System.Xml;
+using AcademiaDB.Data;
 using AcademiaDB.Models;
 using AcademiaDB.UserInterface.MenuOptions;
 using Microsoft.EntityFrameworkCore;
@@ -131,5 +132,32 @@ public class CourseEnrolmentRepository
 
         Console.Clear();
         Console.WriteLine("Grade updated successfully.");
+    }
+
+    public void EnrolStudentIntoCourse(int studentId, int courseId, string grade,
+        int gradeSetter, DateOnly gradingDate)
+    {
+        var newCourseEnrolment = new CourseEnrolment()
+        {
+            StudentIdFk = studentId,
+            CourseIdFk = courseId,
+            Grade = grade,
+            GradeSetterFk = gradeSetter,
+            GradingDate = gradingDate
+        };
+
+        try
+        {
+            _context.CourseEnrolments.Add(newCourseEnrolment);
+            _context.SaveChanges();
+        }
+        catch (Exception)
+        {
+            Console.WriteLine("Something went wrong while trying to enrol a student into a course." +
+                              "Make sure that the grade setter has access to the specified course.");
+            return;
+        }
+
+        Console.WriteLine("Student enrolled successfully.");
     }
 }
