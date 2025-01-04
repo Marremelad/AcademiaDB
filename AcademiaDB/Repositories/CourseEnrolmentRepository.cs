@@ -134,15 +134,15 @@ public class CourseEnrolmentRepository
         Console.WriteLine("Grade updated successfully.");
     }
 
-    public void EnrolStudentIntoCourse(int studentId, int courseId, string grade,
-        int gradeSetter, DateOnly gradingDate)
+    public void EnrolStudentIntoCourse(int studentId, int courseId, string? grade,
+        int gradeSetterId, DateOnly? gradingDate)
     {
         var newCourseEnrolment = new CourseEnrolment()
         {
             StudentIdFk = studentId,
             CourseIdFk = courseId,
             Grade = grade,
-            GradeSetterFk = gradeSetter,
+            GradeSetterFk = gradeSetterId,
             GradingDate = gradingDate
         };
 
@@ -153,7 +153,7 @@ public class CourseEnrolmentRepository
         }
         catch (Exception)
         {
-            Console.WriteLine("Something went wrong while trying to enrol a student into a course." +
+            Console.WriteLine("Something went wrong while trying to enrol a student into a course. " +
                               "Make sure that the grade setter has access to the specified course.");
             return;
         }
