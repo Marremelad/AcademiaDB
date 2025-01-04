@@ -50,7 +50,7 @@ public class UserInput
             var lastName = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(lastName)) return lastName;
-            Console.WriteLine("Last name can not be empty");
+            Console.WriteLine("Last name can not be empty.");
             Thread.Sleep(2000);
         }
     }
@@ -68,7 +68,7 @@ public class UserInput
             var ssn = Console.ReadLine();
             
             if (ssn != null && Regex.IsMatch(ssn, pattern)) return ssn;
-            Console.WriteLine("Invalid SSN format. Please use yyyyMMdd-nnnn");
+            Console.WriteLine("Invalid SSN format. Please use yyyyMMdd-nnnn.");
             Thread.Sleep(2000);
         }
     }
@@ -89,7 +89,7 @@ public class UserInput
             }
 
             if (_studentRepository.StudentExists(studentId)) return studentId;
-            Console.WriteLine("The given ID is not tied to any student");
+            Console.WriteLine("The given ID is not tied to any student.");
             Thread.Sleep(2000);
         }
     }

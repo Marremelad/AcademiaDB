@@ -38,7 +38,7 @@ public class MainMenu
         while (true)
         {
             Console.Clear();
-            var selection = Prompt.DisplaySingleChoicePrompt("Welcome to Academia!", MenuText.MainMenuText);
+            var selection = Prompt.DisplaySingleChoicePrompt("Welcome to AcademiaDB!", MenuText.MainMenuText);
 
             switch (selection)
             {
@@ -66,7 +66,7 @@ public class MainMenu
                     return;
             }
         
-            AnsiConsole.MarkupLine("\n[green]'Q'[/] to quit, or [green]Enter[/] to get back to the main menu");
+            AnsiConsole.MarkupLine("\n[green]'Q'[/] to quit, or [green]Enter[/] to get back to the main menu.");
             
             if (Console.ReadLine() == "Q".ToLower()) break;
         }

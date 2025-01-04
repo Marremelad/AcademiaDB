@@ -27,7 +27,7 @@ public class ClassRepository
     // The selected class object is then used to filter the query and get the class's information.
     public string GetClassInformation(List<Class> classes)
     {
-        var selection = Prompt.DisplaySingleChoicePrompt("Select a class to see its information", classes);
+        var selection = Prompt.DisplaySingleChoicePrompt("Select a class to see its information.", classes);
 
         var classObject = (Class)selection;
         

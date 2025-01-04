@@ -61,7 +61,7 @@ public class StudentRepository
             : students.OrderByDescending(orderByExpression);
 
         var selection = Prompt.DisplaySingleChoicePrompt(
-                "Select a student to see their information", 
+                "Select a student to see their information.", 
                 students.ToList());
 
         var studentObject = (Student)selection;

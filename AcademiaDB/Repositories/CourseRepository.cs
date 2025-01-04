@@ -36,7 +36,7 @@ public class CourseRepository
     // User can then select one of the courses to see its information.
     public string GetCourseInformation(List<Course> courses)
     {
-        var selection = Prompt.DisplaySingleChoicePrompt("Select a course to see its information", courses);
+        var selection = Prompt.DisplaySingleChoicePrompt("Select a course to see its information.", courses);
 
         var courseObject = (Course)selection;
 

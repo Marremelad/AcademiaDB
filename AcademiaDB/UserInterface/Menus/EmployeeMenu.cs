@@ -23,7 +23,7 @@ public class EmployeeMenu
     // Displays the employee menu through the single choice prompt.
     public void DisplayEmployeeMenu()
     {
-        var selection = Prompt.DisplaySingleChoicePrompt("Employee Menu", MenuText.EmployeeMenuText);
+        var selection = Prompt.DisplaySingleChoicePrompt("Select an option.", MenuText.EmployeeMenuText);
         
         var listOfEmployees = new List<Employee>();
         switch (selection)

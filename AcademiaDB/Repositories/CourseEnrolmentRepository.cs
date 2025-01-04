@@ -25,9 +25,9 @@ public class CourseEnrolmentRepository
             .Where(ce => ce.StudentIdFk == studentId)
             .ToList();
 
-        if (courseEnrolments.Count < 1) return ("Student is not enrolled in any courses yet", 0, false);
+        if (courseEnrolments.Count < 1) return ("Student is not enrolled in any courses yet.", 0, false);
         
-        var selection = Prompt.DisplaySingleChoicePrompt("Select a course to see the enrolment information",
+        var selection = Prompt.DisplaySingleChoicePrompt("Select a course to see the enrolment information.",
             courseEnrolments);
 
         var courseEnrolmentObject = (CourseEnrolment)selection;
@@ -93,7 +93,7 @@ public class CourseEnrolmentRepository
 
         Console.Clear();
         
-        var selection = Prompt.DisplaySingleChoicePrompt("Select a grade", validGrades);
+        var selection = Prompt.DisplaySingleChoicePrompt("Select a grade.", validGrades);
 
         if ((string)selection == "Exit") return;
 

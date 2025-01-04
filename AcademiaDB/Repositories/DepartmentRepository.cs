@@ -26,7 +26,7 @@ public class DepartmentRepository
     // The selected department object is then used to filter the query and get the department's information.
     public string GetDepartmentInformation(List<Department> departments)
     {
-        var selection = Prompt.DisplaySingleChoicePrompt("Select a department to se its information",
+        var selection = Prompt.DisplaySingleChoicePrompt("Select a department to se its information.",
             departments);
 
         var departmentObject = (Department)selection;

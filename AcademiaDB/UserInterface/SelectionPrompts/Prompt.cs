@@ -10,7 +10,7 @@ public class Prompt
     // Displays a single choice prompt. Overloaded to handle multiple data structures.
     public static object DisplaySingleChoicePrompt<T>(string title, T options)
     {
-        var moreChoicesText = "Move up and down to reveal more options";
+        var moreChoicesText = "Move up and down to reveal more options.";
         
         // Handles a dictionary of type string and Menutext.Options.
         if (options is Dictionary<string, MenuText.Options> stringDict)
@@ -127,10 +127,10 @@ public class Prompt
             new MultiSelectionPrompt<string>()
                 .Title(title)
                 .PageSize(10)
-                .MoreChoicesText("[grey](Move up and down to reveal more options)[/]")
+                .MoreChoicesText("[grey](Move up and down to reveal more options.)[/]")
                 .InstructionsText(
                     "[grey](Press [blue]<space>[/] to toggle an option, " + 
-                    "[green]<enter>[/] to accept)[/]")
+                    "[green]<enter>[/] to accept.)[/]")
                 .AddChoices(options.Select(s => s.Key)));
 
         return multipleSelections;

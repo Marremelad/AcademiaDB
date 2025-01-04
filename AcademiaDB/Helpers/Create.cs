@@ -29,7 +29,7 @@ public class Create
         
         var lastName = UserInput.GetLastName("Please enter the new students last name.");
         
-        var ssn = UserInput.GetSsn("Please enter the new students SSN.");
+        var ssn = UserInput.GetSsn("Please enter the new students SSN. (yyyyMMdd-nnnn)");
         
         var classId = UserInput.GetClassId("What class should the new student be enrolled into?");
 
@@ -47,7 +47,7 @@ public class Create
         
         var startDate = UserInput.GetEmployeeStartDate("Please enter the new employees start date. (yyyy-MM-dd)");
         
-        var salary = UserInput.GetEmployeeSalary("Please enter the new employees salary");
+        var salary = UserInput.GetEmployeeSalary("Please enter the new employees salary.");
         
         var (department, role) = UserInput.GetEmployeeDepartmentAndRole("PLease enter the new employees role.");
         
@@ -61,9 +61,9 @@ public class Create
     // Get user input to create a new course enrolment.
     public void CreateNewCourseEnrolment()
     {
-        var studentId = _userInput.GetStudentId("Please enter the ID of the student you want to enrol");
+        var studentId = _userInput.GetStudentId("Please enter the ID of the student you want to enrol.");
 
-        var (courseId, gradeSetterId) = _userInput.GetCourseAndGradeSetter("Please select the course want to enrol the student into.");
+        var (courseId, gradeSetterId) = _userInput.GetCourseAndGradeSetter("Please select the course you want to enrol the student into.");
         
         _courseEnrolmentRepository.EnrolStudentIntoCourse(studentId, courseId, null, gradeSetterId, null);
         

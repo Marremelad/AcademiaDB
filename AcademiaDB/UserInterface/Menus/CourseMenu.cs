@@ -22,7 +22,7 @@ public class CourseMenu
     // Displays the course menu.
     public void DisplayCourseMenu()
     {
-        var selection = Prompt.DisplaySingleChoicePrompt("Select an option", MenuText.CourseMenuText);
+        var selection = Prompt.DisplaySingleChoicePrompt("Select an option.", MenuText.CourseMenuText);
 
         var listOfCourses = new List<Course>();
         switch (selection)

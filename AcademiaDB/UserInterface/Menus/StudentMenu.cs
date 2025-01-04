@@ -29,7 +29,7 @@ public class StudentMenu
     // Displays the student menu through the single choice prompt.
     public void DisplayStudentMenu()
     {
-        var selection = Prompt.DisplaySingleChoicePrompt("Select an option", MenuText.StudentMenuText);
+        var selection = Prompt.DisplaySingleChoicePrompt("Select an option.", MenuText.StudentMenuText);
 
         IQueryable<Student> listOfStudents = Enumerable.Empty<Student>().AsQueryable();
         switch (selection)
@@ -39,7 +39,7 @@ public class StudentMenu
                 break;
             
             case MenuText.Options.StudentsByClass:
-                var classId = UserInput.GetClassId("Select a class to see its students");
+                var classId = UserInput.GetClassId("Select a class to see its students.");
                 listOfStudents = _studentRepository.GetStudentsFromSpecifiedClass(classId);
                 break;
             
@@ -53,7 +53,7 @@ public class StudentMenu
                 return;
             
             case MenuText.Options.StudentById:
-                var studentId = _userInput.GetStudentId("Please enter the students ID");
+                var studentId = _userInput.GetStudentId("Please enter the students ID.");
                 listOfStudents = _studentRepository.GetStudentById(studentId);
                 break;
             
@@ -101,7 +101,7 @@ public class StudentMenu
             Console.Clear();
             
             // A list of type string that is converted into a list of type MenuChoice.
-            var selection = Prompt.DisplayMultiChoicePrompt("Select options to order by", MenuText.OrderStudentsByMenuText)
+            var selection = Prompt.DisplayMultiChoicePrompt("Select options to order by.", MenuText.OrderStudentsByMenuText)
                 .Where(MenuText.OrderStudentsByMenuText.ContainsKey)
                 .Select(key => MenuText.OrderStudentsByMenuText[key])
                 .ToList();

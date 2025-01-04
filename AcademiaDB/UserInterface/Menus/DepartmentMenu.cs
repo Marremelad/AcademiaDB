@@ -17,7 +17,7 @@ public class DepartmentMenu
     // Displays the department menu.
     public void DisplayDepartmentMenu()
     {
-        var selection = Prompt.DisplaySingleChoicePrompt("Select an option",
+        var selection = Prompt.DisplaySingleChoicePrompt("Select an option.",
             MenuText.DepartmentMenuText);
 
         var listOfDepartments = new List<Department>();
