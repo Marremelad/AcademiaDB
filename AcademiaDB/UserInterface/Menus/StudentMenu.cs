@@ -11,15 +11,18 @@ public class StudentMenu
 {
     private StudentRepository _studentRepository;
     private CourseEnrolmentRepository _courseEnrolmentRepository;
+    private UserInput _userInput;
     private Create _create;
 
     public StudentMenu(
         StudentRepository studentRepository,
         CourseEnrolmentRepository courseEnrolmentRepository,
+        UserInput userInput,
         Create create)
     {
         _studentRepository = studentRepository;
         _courseEnrolmentRepository = courseEnrolmentRepository;
+        _userInput = userInput;
         _create = create;
     }
 
@@ -40,7 +43,7 @@ public class StudentMenu
                 listOfStudents = _studentRepository.GetStudentsFromSpecifiedClass(classId);
                 break;
             
-            case MenuText.Options.OrderedStudents:
+            case MenuText.Options.StudentsByOrder:
                 listOfStudents = _studentRepository.GetStudents();
                 CallStudentRepository(listOfStudents, true);
                 return;
@@ -48,6 +51,11 @@ public class StudentMenu
             case MenuText.Options.AddStudent:
                 _create.CreateNewStudent();
                 return;
+            
+            case MenuText.Options.StudentById:
+                var studentId = _userInput.GetStudentId("Please enter the students ID");
+                listOfStudents = _studentRepository.GetStudentById(studentId);
+                break;
             
             case MenuText.Options.Exit:
                 return;
@@ -62,6 +70,8 @@ public class StudentMenu
         string? studentInformation;
         int studentId;
 
+        Console.Clear();
+        
         if (orderStudents)
         {
             var (sortBy, orderBy) = DisplayOrderStudentsByMenu();
@@ -73,11 +83,11 @@ public class StudentMenu
             (studentInformation, studentId) = _studentRepository.
                 GetStudentInformation(listOfStudents);
         }
+        Console.WriteLine(studentInformation);
         
         var (enrolmentInformation, enrolmentId, courseFound) = _courseEnrolmentRepository.
             GetStudentCourseEnrolments(studentId);
         
-        Console.WriteLine(studentInformation);
         Console.WriteLine(enrolmentInformation);
                 
         if (courseFound) _courseEnrolmentRepository.UpdateGradeOptions(enrolmentId);

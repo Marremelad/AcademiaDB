@@ -15,15 +15,25 @@ public class StudentRepository
         _context = context;
     }
 
-    // Returns a list of student objects.
+    // Returns an IQueryable of student objects.
     public IQueryable<Student> GetStudents()
     {
         var students = _context.Students;
 
         return students;
     }
+
+    // Returns an IQueryable of a single student through a stored procedure.
+    public IQueryable<Student> GetStudentById(int studentId)
+    {
+        var student = _context.Students
+            .FromSqlRaw("EXEC GetStudentInfo @StudentId = {0}", studentId)
+            .ToList();
+
+        return student.AsQueryable();
+    }
     
-    // Returns a list of student objects from a specified class.
+    // Returns an IQueryable of student objects from a specified class.
     public IQueryable<Student> GetStudentsFromSpecifiedClass(int classId)
     {
         var students = _context.Students
@@ -37,7 +47,6 @@ public class StudentRepository
     {
         return _context.Students.Any(s => s.StudentId == studentId);
     }
-
     
     // Displays a single choice prompt of student objects based on specific input.
     // User can select one of the student objects and see the student's information.

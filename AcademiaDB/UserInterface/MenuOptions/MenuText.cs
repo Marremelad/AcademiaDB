@@ -33,7 +33,8 @@ public static class MenuText
         // Student Menu.
         AllStudents,
         StudentsByClass,
-        OrderedStudents,
+        StudentById,
+        StudentsByOrder,
         AddStudent,
         
         // Class Menu.
@@ -96,8 +97,9 @@ public static class MenuText
     public static readonly Dictionary<string, Options> StudentMenuText = new()
     {
         { "All students", Options.AllStudents },
-        { "Order students", Options.OrderedStudents },
+        { "Students by order", Options.StudentsByOrder },
         { "Students by class", Options.StudentsByClass },
+        { "Students by ID", Options.StudentById },
         { "Add a new student", Options.AddStudent },
         { "Exit", Options.Exit }
     };
