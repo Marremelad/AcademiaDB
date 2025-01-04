@@ -19,6 +19,7 @@ public class CourseMenu
         _create = create;
     }
 
+    // Displays the course menu.
     public void DisplayCourseMenu()
     {
         var selection = Prompt.DisplaySingleChoicePrompt("Select an option", MenuText.CourseMenuText);

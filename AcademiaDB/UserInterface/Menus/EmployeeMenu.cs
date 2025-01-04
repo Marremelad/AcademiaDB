@@ -8,8 +8,8 @@ namespace AcademiaDB.UserInterface.Menus;
 
 public class EmployeeMenu
 {
-    private readonly EmployeeRepository _employeeRepository; // Private instance of EmployeeRepository. Will be resolved by DI container.
-    private readonly Create _create; // Private instance of Create. Will be resolved by DI container.
+    private readonly EmployeeRepository _employeeRepository;
+    private readonly Create _create;
 
     public EmployeeMenu(
         EmployeeRepository employeeRepository,

@@ -35,7 +35,7 @@ public class CourseEnrolmentRepository
         return (GetInformationString(courseEnrolmentObject), courseEnrolmentObject.EnrolmentId, true);
     }
     
-    // Returns a string with the chosen course enrolment information.
+    // Returns a string with the chosen course enrolment's information.
     private string GetInformationString(CourseEnrolment courseEnrolmentObject)
     {
         var courseEnrolment = _context.CourseEnrolments
@@ -134,6 +134,8 @@ public class CourseEnrolmentRepository
         Console.WriteLine("Grade updated successfully.");
     }
 
+    
+    // Creates a new course enrolment.
     public void EnrolStudentIntoCourse(int studentId, int courseId, string? grade,
         int gradeSetterId, DateOnly? gradingDate)
     {

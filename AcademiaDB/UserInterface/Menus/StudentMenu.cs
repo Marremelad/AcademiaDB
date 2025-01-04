@@ -23,6 +23,7 @@ public class StudentMenu
         _create = create;
     }
 
+    // Displays the student menu through the single choice prompt.
     public void DisplayStudentMenu()
     {
         var selection = Prompt.DisplaySingleChoicePrompt("Select an option", MenuText.StudentMenuText);
@@ -55,6 +56,7 @@ public class StudentMenu
         CallStudentRepository(listOfStudents);
     }
     
+    // Calls the student repository.
     private void CallStudentRepository(IQueryable<Student> listOfStudents, bool orderStudents = false)
     {
         string? studentInformation;
@@ -81,6 +83,7 @@ public class StudentMenu
         if (courseFound) _courseEnrolmentRepository.UpdateGradeOptions(enrolmentId);
     }
 
+    // Displays the order student by menu.
     private Tuple<Expression<Func<Student, string>>, bool> DisplayOrderStudentsByMenu()
     {
         while (true)

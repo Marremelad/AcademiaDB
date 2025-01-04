@@ -14,6 +14,7 @@ public class DepartmentMenu
         _departmentRepository = departmentRepository;
     }
 
+    // Displays the department menu.
     public void DisplayDepartmentMenu()
     {
         var selection = Prompt.DisplaySingleChoicePrompt("Select an option",

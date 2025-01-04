@@ -51,6 +51,7 @@ public class Prompt
             return selection;
         }
         
+        // Handles a list of type Student.
         if (options is List<Student> studentList)
         {
             var selection = AnsiConsole.Prompt(
@@ -63,6 +64,7 @@ public class Prompt
             return selection;
         }
         
+        // Handles a list of type CourseEnrolment.
         if (options is List<CourseEnrolment> courseEnrolmentList)
         {
             var selection = AnsiConsole.Prompt(
@@ -75,6 +77,7 @@ public class Prompt
             return selection;
         }
         
+        // Handles a list of type Class.
         if (options is List<Class> classList)
         {
             var selection = AnsiConsole.Prompt(
@@ -86,7 +89,7 @@ public class Prompt
             
             return selection;
         }
-        
+        // Handles a list of type Department.
         if (options is List<Department> departmentList)
         {
             var selection = AnsiConsole.Prompt(
@@ -99,6 +102,7 @@ public class Prompt
             return selection;
         }
         
+        // Handles a list of type Course.
         if (options is List<Course> courseList)
         {
             var selection = AnsiConsole.Prompt(

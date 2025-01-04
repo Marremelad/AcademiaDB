@@ -8,12 +8,12 @@ namespace AcademiaDB.UserInterface.Menus;
 
 public class MainMenu
 {
-    private EmployeeMenu _employeeMenu; // Private instance of EmployeeMenu. Will be resolved by DI container.
+    private EmployeeMenu _employeeMenu;
     private DepartmentMenu _departmentMenu;
     private StudentMenu _studentMenu;
     private ClassMenu _classMenu;
     private CourseMenu _courseMenu;
-    private ViewRepository _viewRepository; // Private instance of ViewRepository. Will be resolved by DI container.
+    private ViewRepository _viewRepository;
 
     public MainMenu(
         EmployeeMenu employeeMenu,

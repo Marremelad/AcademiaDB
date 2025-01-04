@@ -11,6 +11,7 @@ public class ClassMenu
         _classRepository = classRepository;
     }
 
+    // Displays the class menu.
     public void DisplayClassMenu()
     {
         var listOfClasses = _classRepository.GetClasses();

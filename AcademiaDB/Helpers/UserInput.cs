@@ -73,6 +73,7 @@ public class UserInput
         }
     }
 
+    // Get student ID from user input.
     public int GetStudentId(string title)
     {
         while (true)
@@ -165,6 +166,7 @@ public class UserInput
         };
     }
 
+    // Get course a
     public (int, int) GetCourseAndGradeSetter(string title)
     {
         Console.Clear();
