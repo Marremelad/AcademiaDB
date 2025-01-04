@@ -1,12 +1,23 @@
 ﻿using System.Globalization;
 using System.Text.RegularExpressions;
+using AcademiaDB.Data;
+using AcademiaDB.Models;
+using AcademiaDB.Repositories;
 using AcademiaDB.UserInterface.MenuOptions;
 using AcademiaDB.UserInterface.SelectionPrompts;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Spectre.Console;
 
 namespace AcademiaDB.Helpers;
 
-public static class UserInput
+public class UserInput
 {
+    private CourseRepository _courseRepository;
+
+    public UserInput(CourseRepository courseRepository)
+    {
+        _courseRepository = courseRepository;
+    }
     
     // Get first name from user input.
     public static string GetFirstName(string title)
@@ -126,6 +137,24 @@ public static class UserInput
             MenuText.Options.Administrator => (2, 3),
             MenuText.Options.Janitor => (3, 4),
             MenuText.Options.Security => (4, 5),
+            _ => (0, 0)
+        };
+    }
+
+    public (int, int) GetCourseAndGradeSetter(string title)
+    {
+        Console.Clear();
+        var selection = Prompt.DisplaySingleChoicePrompt(title, _courseRepository.GetCourses());
+
+        var course = (Course)selection;
+
+        return course.CourseId switch
+        {
+            1 => (1, 3),
+            2 => (2, 2),
+            3 => (3, 7),
+            4 => (4, 11),
+            5 => (5, 9),
             _ => (0, 0)
         };
     }
