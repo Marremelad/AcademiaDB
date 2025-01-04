@@ -95,9 +95,9 @@ public class CourseEnrolmentRepository
         
         var selection = Prompt.DisplaySingleChoicePrompt("Select a grade or select 'Exit' to return.", validGrades);
 
-        if ((string)selection == "Exit") return;
-
         var stringObject = (string)selection;
+        
+        if (stringObject == "Exit") return;
         
         UpdateCourseGrade(enrolmentId, stringObject);
     }
