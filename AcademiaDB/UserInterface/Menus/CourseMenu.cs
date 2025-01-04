@@ -33,6 +33,7 @@ public class CourseMenu
             case MenuText.Options.ActiveCourses:
                 listOfCourses = _courseRepository.GetActiveCourses();
                 break;
+            
             case MenuText.Options.EnrolStudentIntoCourse:
                 _create.CreateNewCourseEnrolment();
                 return;
