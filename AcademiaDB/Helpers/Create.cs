@@ -22,6 +22,7 @@ public class Create
         _userInput = userInput;
     }
     
+    // Get user input to create a new student.
     public void CreateNewStudent()
     {
         var firstName = UserInput.GetFirstName("Please enter the new students first name.");
@@ -57,6 +58,7 @@ public class Create
         // _employeeRepository.AddEmployeeToDatabase("Foo", "Bar", "19901010-1111", new DateOnly(2010, 10, 10), 100, 4, 1);
     }
 
+    // Get user input to create a new course enrolment.
     public void CreateNewCourseEnrolment()
     {
         var studentId = _userInput.GetStudentId("Please enter the ID of the student you want to enrol");
