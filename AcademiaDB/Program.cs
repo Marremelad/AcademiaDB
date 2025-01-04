@@ -6,7 +6,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Run the program.
+        // Runs the program.
         Startup.Run();
     }
 }
