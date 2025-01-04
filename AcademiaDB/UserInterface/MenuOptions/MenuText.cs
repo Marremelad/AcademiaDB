@@ -1,6 +1,6 @@
 ﻿namespace AcademiaDB.UserInterface.MenuOptions;
 
-public class MenuText
+public static class MenuText
 {
     public enum Options
     {
@@ -46,6 +46,7 @@ public class MenuText
         // Course Menu.
         AllCourses,
         ActiveCourses,
+        EnrolStudentIntoCourse,
         
         // Update Grade.
         UpdateGrade
@@ -125,6 +126,7 @@ public class MenuText
     {
         { "All courses", Options.AllCourses },
         { "Active courses", Options.ActiveCourses },
+        { "Enrol student into course", Options.EnrolStudentIntoCourse},
         { "Exit", Options.Exit }
     };
     
