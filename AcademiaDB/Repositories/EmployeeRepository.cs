@@ -137,7 +137,6 @@ public class EmployeeRepository
         catch (Exception)
         {
             Console.WriteLine("Something went wrong while attempting to add a new employee to the database.\n" +
-                              "Make sure that the employees assigned role matches their assigned department.\n" +
                               "Rolling back changes...");
             return;
         }

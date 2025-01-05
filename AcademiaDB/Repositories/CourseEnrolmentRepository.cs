@@ -125,7 +125,6 @@ public class CourseEnrolmentRepository
         catch (Exception)
         {
             Console.WriteLine("Something went wrong while attempting to update a grade.\n" +
-                              "Make sure that the grade is a valid character.('A', 'B', 'C', 'D', 'E', 'F')\n" +
                               "Rolling back changes...");
             return;
         }
