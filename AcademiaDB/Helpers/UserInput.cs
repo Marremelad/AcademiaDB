@@ -166,14 +166,19 @@ public class UserInput
         };
     }
 
-    // Get course a
-    public (int, int) GetCourseAndGradeSetter(string title)
+    // Get course and grade setter when creating a new course enrolment.
+    public (int, int) GetCourseAndGradeSetter(string title, int studentId)
     {
         Console.Clear();
+        
+        var student = _studentRepository.GetStudentById(studentId).Single();
+        Console.WriteLine(_studentRepository.GetInformationString(student));
+        
         var selection = Prompt.DisplaySingleChoicePrompt(title, _courseRepository.GetCourses());
 
         var course = (Course)selection;
 
+        // Assigns the correct teacher depending on the chosen course.
         return course.CourseId switch
         {
             1 => (1, 3),
