@@ -8,7 +8,7 @@ namespace AcademiaDB.Repositories;
 
 public class EmployeeRepository
 {
-    private AcademiaContext _context; // Private instance of AcademiaContext. Will be resolved by the DI container.
+    private AcademiaContext _context;
     
     public EmployeeRepository(AcademiaContext context)
     {
@@ -138,6 +138,8 @@ public class EmployeeRepository
         {
             Console.WriteLine("Something went wrong while attempting to add a new employee to the database.\n" +
                               "Rolling back changes...");
+            
+            _context.ChangeTracker.Clear();
             return;
         }
         

@@ -126,6 +126,8 @@ public class CourseEnrolmentRepository
         {
             Console.WriteLine("Something went wrong while attempting to update a grade.\n" +
                               "Rolling back changes...");
+            
+            _context.ChangeTracker.Clear();
             return;
         }
 
