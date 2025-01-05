@@ -76,7 +76,7 @@ public class StudentRepository
     }
     
     // Returns a string with the chosen student's information.
-    private string GetInformationString(Student studentObject)
+    public string GetInformationString(Student studentObject)
     {
         var student = _context.Students
             .Include(s => s.ClassIdFkNavigation)
