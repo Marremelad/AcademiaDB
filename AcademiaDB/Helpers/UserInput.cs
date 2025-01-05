@@ -142,7 +142,9 @@ public class UserInput
             Console.Clear();
             Console.WriteLine(title);
 
-            if (decimal.TryParse(Console.ReadLine(), out var salary)) return salary;
+            if (decimal.TryParse(Console.ReadLine(), out var salary)
+                && salary <= 100000000) return salary;
+            
             Console.WriteLine("Invalid input.");
             Thread.Sleep(2000);
         }
