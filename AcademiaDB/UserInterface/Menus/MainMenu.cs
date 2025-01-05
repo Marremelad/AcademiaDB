@@ -67,6 +67,7 @@ public class MainMenu
                     break;
                 
                 case MenuText.Options.Exit:
+                    Console.WriteLine("Thank you for using AcademiaDB.");
                     return;
             }
         
