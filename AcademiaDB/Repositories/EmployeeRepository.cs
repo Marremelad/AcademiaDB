@@ -109,7 +109,7 @@ public class EmployeeRepository
                $"SSN: {employee.EmployeeSsn}\n" +
                $"Department: {employee.DepartmentIdFkNavigation.DepartmentName}\n" +
                $"Role: {employee.RoleIdFkNavigation.RoleName}\n" +
-               $"Salary: {employee.EmployeeSalary}\n" +
+               $"Salary: {employee.EmployeeSalary:C}\n" +
                $"Start Date: {employee.EmployeeStartDate}\n" +
                $"Years In Service: {RepositoryHelper.GetEmployeeYearsInService(employee):F1}";
     }
