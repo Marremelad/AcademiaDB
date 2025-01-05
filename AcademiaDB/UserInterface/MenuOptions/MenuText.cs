@@ -16,6 +16,7 @@ public static class MenuText
         Classes,
         Departments,
         Courses,
+        TopGrades,
         Exit,
         
         // Employee Menu.
@@ -61,6 +62,7 @@ public static class MenuText
         { "Students", Options.Students },
         { "Classes", Options.Classes },
         { "Courses", Options.Courses },
+        { "Top Grades", Options.TopGrades },
         { "Exit", Options.Exit }
     };
     

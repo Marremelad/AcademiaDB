@@ -62,6 +62,10 @@ public class MainMenu
                     _courseMenu.DisplayCourseMenu();
                     break;
                 
+                case MenuText.Options.TopGrades:
+                    Console.WriteLine(_viewRepository.GetTopGrades());
+                    break;
+                
                 case MenuText.Options.Exit:
                     return;
             }
