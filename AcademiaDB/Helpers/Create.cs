@@ -1,5 +1,4 @@
-﻿using System.Data;
-using AcademiaDB.Repositories;
+﻿using AcademiaDB.Repositories;
 
 namespace AcademiaDB.Helpers;
 
