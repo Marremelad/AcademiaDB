@@ -484,4 +484,4 @@ $RECYCLE.BIN/
 *.swp
 
 # Context file
-AcademiaDB/Data/AcademiaContext.cs
+# AcademiaDB/Data/AcademiaContext.cs
